@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Discover Batik</string>
+
+    <!--    Landing -->
+    <string name="heading_landing">Discovering The Beauty Of Batik\nFind The Story Of Indonesia</string>
+    <string name="description_landing">Lorem Ipsum is simply dummy text of the printing\nand typesetting industry. Lorem Ipsum</string>
+
+    <!--    Register & Login -->
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="already_have_account">already have account?</string>
+    <string name="not_have_account">not have account?</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+
+    <!--    Register -->
+    <string name="create_new_account">Create new account</string>
+    <string name="welcome_back_buddy">Welcome back buddy</string>
+    <string name="description1">Username cannot use numbers</string>
+    <string name="description2">Enter a valid email</string>
+    <string name="description3">Password must be more than 8 character</string>
+</resources>
