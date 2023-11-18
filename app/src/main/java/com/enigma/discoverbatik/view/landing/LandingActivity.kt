@@ -21,13 +21,13 @@ class LandingActivity : AppCompatActivity() {
 
         landingBinding.apply {
 
-            btnRegister?.setOnClickListener {
+            btnRegister.setOnClickListener {
                 startActivity(Intent(this@LandingActivity, RegisterActivity::class.java))
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                 finish()
             }
 
-            linearLayout?.setOnClickListener {
+            linearLayout.setOnClickListener {
                 startActivity(Intent(this@LandingActivity, LoginActivity::class.java))
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                 finish()
