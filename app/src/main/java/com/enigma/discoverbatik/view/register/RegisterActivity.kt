@@ -3,21 +3,31 @@ package com.enigma.discoverbatik.view.register
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.enigma.discoverbatik.R
 import com.enigma.discoverbatik.databinding.ActivityRegisterBinding
+import com.enigma.discoverbatik.di.Injection
 import com.enigma.discoverbatik.utils.CommonUtils
 import com.enigma.discoverbatik.view.landing.LandingActivity
 import com.enigma.discoverbatik.view.login.LoginActivity
+import kotlinx.coroutines.launch
 
 @Suppress("DEPRECATION")
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var registerBinding: ActivityRegisterBinding
+    private lateinit var registerViewModel: RegisterViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         registerBinding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(registerBinding.root)
+
+        val injection = Injection.provideRepository(this@RegisterActivity)
+        val factory = ViewModelFactory(injection)
+        registerViewModel =
+            ViewModelProvider(this@RegisterActivity, factory)[RegisterViewModel::class.java]
 
         registerBinding.apply {
             btnBack.setOnClickListener {
@@ -33,24 +43,35 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             btnRegister.setOnClickListener {
-                val username = edtUsername.text
-                val email = edtEmail.text
-                val password = edtPassword.text
-
-                if (username.isNullOrEmpty() && email.isNullOrEmpty() && password.isNullOrEmpty()) {
-                    onFailureRegister("Register Failed, please fill all fields")
-                } else if (username!!.length > 20) {
-                    onFailureRegister("Username too much")
-                } else if (password!!.length < 8) {
-                    onFailureRegister("Register Failed, password must be 8 character")
-                } else {
-                    onSuccessRegister("Register was success please login, thank for creating your account here :)")
-                }
+                register()
             }
-
 
         }
 
+    }
+
+    private fun register() {
+        val username = registerBinding.edtUsername.text.toString().trim()
+        val email = registerBinding.edtEmail.text.toString().trim()
+        val password = registerBinding.edtPassword.text.toString().trim()
+
+        if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            onFailureRegister("Register Failed, please fill username,email and password")
+        } else if (password.length < 8) {
+            onFailureRegister("Register Failed, password must be 8 character")
+        } else {
+            CommonUtils.loading(registerBinding.loading, true)
+            lifecycleScope.launch {
+                try {
+                    registerViewModel.register(username, email, password)
+                    CommonUtils.loading(registerBinding.loading, false)
+                    onSuccessRegister("Register was success please login, thank for creating your account here :)")
+                } catch (e: Exception) {
+                    CommonUtils.loading(registerBinding.loading, false)
+                    onFailureRegister("Register Failed, username, email & password maybe has already use by another")
+                }
+            }
+        }
     }
 
     private fun onFailureRegister(message: String) {

@@ -43,6 +43,33 @@ android {
 
 dependencies {
 
+
+//    Retrofit
+    val retrofitVersion = "2.9.0"
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+
+//    Okhttp
+    val okhttpVersion = "4.11.0"
+    implementation("com.squareup.okhttp3:logging-interceptor:$okhttpVersion")
+
+//    ViewModel
+    val viewModelVersion = "2.6.2"
+    val activityKtxVersion = "1.7.2"
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelVersion")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$viewModelVersion")
+    implementation("androidx.activity:activity-ktx:$activityKtxVersion")
+
+//    Coroutine
+    val coroutineVersion = "1.3.9"
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
+
+//    Datastore
+    val dataStoreVersion = "1.0.0"
+    implementation("androidx.datastore:datastore-preferences:$dataStoreVersion")
+
+
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")

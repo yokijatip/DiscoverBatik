@@ -8,6 +8,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.enigma.discoverbatik.R
@@ -61,6 +62,10 @@ object CommonUtils {
 
         }
         dialog.show()
+    }
+
+    fun loading(view: View, state: Boolean) {
+        view.visibility = if (state) View.VISIBLE else View.GONE
     }
 
 }
