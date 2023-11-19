@@ -1,4 +1,4 @@
-package com.enigma.discoverbatik.view.register
+package com.enigma.discoverbatik.view.activity.register
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,8 +9,8 @@ import com.enigma.discoverbatik.R
 import com.enigma.discoverbatik.databinding.ActivityRegisterBinding
 import com.enigma.discoverbatik.di.Injection
 import com.enigma.discoverbatik.utils.CommonUtils
-import com.enigma.discoverbatik.view.landing.LandingActivity
-import com.enigma.discoverbatik.view.login.LoginActivity
+import com.enigma.discoverbatik.view.activity.landing.LandingActivity
+import com.enigma.discoverbatik.view.activity.login.LoginActivity
 import kotlinx.coroutines.launch
 
 @Suppress("DEPRECATION")

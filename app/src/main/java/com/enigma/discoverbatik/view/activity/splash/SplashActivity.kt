@@ -1,4 +1,4 @@
-package com.enigma.discoverbatik.view.splash
+package com.enigma.discoverbatik.view.activity.splash
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -11,8 +11,8 @@ import com.enigma.discoverbatik.R
 import com.enigma.discoverbatik.data.local.preferences.TokenPreferences
 import com.enigma.discoverbatik.data.local.preferences.dataStore
 import com.enigma.discoverbatik.databinding.ActivitySplashBinding
-import com.enigma.discoverbatik.view.home.HomeActivity
-import com.enigma.discoverbatik.view.landing.LandingActivity
+import com.enigma.discoverbatik.view.activity.landing.LandingActivity
+import com.enigma.discoverbatik.view.activity.main.MainActivity
 import kotlinx.coroutines.launch
 
 @SuppressLint("CustomSplashScreen")
@@ -38,7 +38,7 @@ class SplashActivity : AppCompatActivity() {
                 val token = getTokenDataStore()
                 if (token.isNotEmpty()) {
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-                    startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
+                    startActivity(Intent(this@SplashActivity, MainActivity::class.java))
                 } else {
                     startActivity(
                         Intent(

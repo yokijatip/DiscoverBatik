@@ -1,4 +1,4 @@
-package com.enigma.discoverbatik.view.register
+package com.enigma.discoverbatik.view.activity.register
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

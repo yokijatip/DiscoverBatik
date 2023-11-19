@@ -1,4 +1,4 @@
-package com.enigma.discoverbatik.view.login
+package com.enigma.discoverbatik.view.activity.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,8 +12,8 @@ import com.enigma.discoverbatik.data.local.preferences.dataStore
 import com.enigma.discoverbatik.databinding.ActivityLoginBinding
 import com.enigma.discoverbatik.di.Injection
 import com.enigma.discoverbatik.utils.CommonUtils
-import com.enigma.discoverbatik.view.home.HomeActivity
-import com.enigma.discoverbatik.view.register.RegisterActivity
+import com.enigma.discoverbatik.view.activity.main.MainActivity
+import com.enigma.discoverbatik.view.activity.register.RegisterActivity
 import kotlinx.coroutines.launch
 
 @Suppress("DEPRECATION")
@@ -86,7 +86,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun onSuccessLogin() {
-        startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         finish()
     }

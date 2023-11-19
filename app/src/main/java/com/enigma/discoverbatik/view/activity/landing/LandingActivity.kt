@@ -1,12 +1,12 @@
-package com.enigma.discoverbatik.view.landing
+package com.enigma.discoverbatik.view.activity.landing
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.enigma.discoverbatik.R
 import com.enigma.discoverbatik.databinding.ActivityLandingBinding
-import com.enigma.discoverbatik.view.login.LoginActivity
-import com.enigma.discoverbatik.view.register.RegisterActivity
+import com.enigma.discoverbatik.view.activity.login.LoginActivity
+import com.enigma.discoverbatik.view.activity.register.RegisterActivity
 
 
 @Suppress("DEPRECATION")

@@ -12,7 +12,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.enigma.discoverbatik.R
-import com.enigma.discoverbatik.view.login.LoginActivity
+import com.enigma.discoverbatik.view.activity.login.LoginActivity
 
 object CommonUtils {
 

@@ -20,4 +20,6 @@
     <string name="description1">Username cannot use numbers</string>
     <string name="description2">Enter a valid email</string>
     <string name="description3">Password must be more than 8 character</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
