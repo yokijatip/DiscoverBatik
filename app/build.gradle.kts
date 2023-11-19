@@ -71,6 +71,10 @@ implementation("androidx.legacy:legacy-support-v4:1.0.0")
     val dataStoreVersion = "1.0.0"
     implementation("androidx.datastore:datastore-preferences:$dataStoreVersion")
 
+//    Rounded Image
+    val roundedImageVersion = "2.3.0"
+    implementation ("com.makeramen:roundedimageview:$roundedImageVersion")
+
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

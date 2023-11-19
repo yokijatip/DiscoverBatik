@@ -1,12 +1,18 @@
 package com.enigma.discoverbatik.view.fragment.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.enigma.discoverbatik.R
-import com.enigma.discoverbatik.view.fragment.home.HomeFragment
+import com.enigma.discoverbatik.data.local.preferences.TokenPreferences
+import com.enigma.discoverbatik.data.local.preferences.dataStore
+import com.enigma.discoverbatik.view.activity.landing.LandingActivity
+import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment(), View.OnClickListener {
 
@@ -21,6 +27,16 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val btnLogout = view.findViewById<Button>(R.id.btn_logout)
+
+        btnLogout.setOnClickListener {
+            lifecycleScope.launch {
+                clearTokenDataStore()
+                startActivity(Intent(requireActivity(), LandingActivity::class.java))
+                onDestroy()
+            }
+        }
     }
 
     override fun onClick(v: View?) {
@@ -34,6 +50,11 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             fragment.arguments = args
             return fragment
         }
+    }
+
+    private suspend fun clearTokenDataStore() {
+        val dataStore = TokenPreferences.getInstance(requireActivity().dataStore)
+        return dataStore.clearToken()
     }
 
 }
