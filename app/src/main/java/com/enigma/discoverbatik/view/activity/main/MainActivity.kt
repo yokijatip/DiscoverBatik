@@ -1,33 +1,63 @@
 package com.enigma.discoverbatik.view.activity.main
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.enigma.discoverbatik.R
 import com.enigma.discoverbatik.databinding.ActivityMainBinding
+import com.enigma.discoverbatik.view.fragment.explore.ExploreFragment
+import com.enigma.discoverbatik.view.fragment.favorite.FavoriteFragment
 import com.enigma.discoverbatik.view.fragment.home.HomeFragment
+import com.enigma.discoverbatik.view.fragment.profile.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
 
+
     private lateinit var mainBinding: ActivityMainBinding
+
+    private fun fragmentManager(fragment: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
+            .replace(R.id.content, fragment, fragment.javaClass.simpleName)
+            .commit()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
-        val fragmentManager = supportFragmentManager
-        val homeFragment = HomeFragment()
-        val fragment = fragmentManager.findFragmentByTag(HomeFragment::class.java.simpleName)
+        mainBinding.apply {
+            bottomNavigation.setOnItemSelectedListener { item ->
+                when (item.itemId) {
+                    R.id.home -> {
+                        val fragment = HomeFragment.newInstance()
+                        fragmentManager(fragment)
+                    }
 
-        if (fragment !is HomeFragment) {
-            Log.d("My Flexible Fragment", "Fragment Name: " + HomeFragment::class.java.simpleName)
-            fragmentManager
-                .beginTransaction()
-                .add(R.id.content, homeFragment, HomeFragment::class.java.simpleName)
-                .commit()
+                    R.id.explore -> {
+                        val fragment = ExploreFragment.newInstance()
+                        fragmentManager(fragment)
+                    }
+
+                    R.id.favorite -> {
+                        val fragment = FavoriteFragment.newInstance()
+                        fragmentManager(fragment)
+                    }
+
+                    R.id.profile -> {
+                        val fragment = ProfileFragment.newInstance()
+                        fragmentManager(fragment)
+                    }
+                }
+                bottomNavigation.menu.findItem(item.itemId)?.isChecked = true
+                false
+            }
         }
 
+        val fragment = HomeFragment.newInstance()
+        fragmentManager(fragment)
 
     }
 }
