@@ -22,4 +22,23 @@
     <string name="description3">Password must be more than 8 character</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="card_home_1_text">Find Batik\\nPattern</string>
+
+    <!--    Home -->
+    <string name="card_home1">Find Batik\nPattern</string>
+    <string name="card_home2">My Shopping\nBag</string>
+
+    <!--    Shop -->
+    <string name="shop_name1">Rumah Batik Jogja</string>
+    <string name="shop_name2">Batik House Bandung</string>
+    <string name="shop_name3">Old House</string>
+
+    <string name="shop_location1">Yogyakarta, Indonesia</string>
+    <string name="shop_location2">Bandung, Indonesia</string>
+    <string name="shop_location3">Bali, Indonesia</string>
+
+    <string name="shop_description1">Clothes, pants, fabric, other stuff</string>
+    <string name="shop_description2">fabric, other stuff</string>
+    <string name="shop_description3">Clother, other stuff</string>
+
 </resources>

@@ -16,11 +16,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainBinding: ActivityMainBinding
 
     private fun fragmentManager(fragment: Fragment) {
-        supportFragmentManager
-            .beginTransaction()
-            .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
-            .replace(R.id.content, fragment, fragment.javaClass.simpleName)
-            .commit()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.setCustomAnimations(
+            R.anim.fade_in,
+            R.anim.fade_out
+        )
+        transaction.replace(R.id.content, fragment, fragment.javaClass.simpleName)
+        transaction.commit()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:overScrollMode="ifContentScrolls"
+    app:layout_scrollEffect="compress"
     tools:context=".view.fragment.profile.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -111,7 +113,7 @@
                         android:fontFamily="@font/roboto_reguler"
                         android:text="Address"
                         android:textColor="@color/darkGrey"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         tools:ignore="TextSizeCheck" />
 
                     <ImageView
@@ -149,13 +151,14 @@
                         android:fontFamily="@font/roboto_reguler"
                         android:text="Account"
                         android:textColor="@color/darkGrey"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         tools:ignore="TextSizeCheck" />
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/ic_arrow_left_dark_grey" />
+                        android:src="@drawable/ic_arrow_left_dark_grey"
+                        tools:ignore="ContentDescription" />
 
                 </LinearLayout>
 
@@ -209,7 +212,7 @@
                         android:fontFamily="@font/roboto_reguler"
                         android:text="Notification"
                         android:textColor="@color/darkGrey"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         tools:ignore="TextSizeCheck" />
 
                     <ImageView
@@ -247,13 +250,14 @@
                         android:fontFamily="@font/roboto_reguler"
                         android:text="Password"
                         android:textColor="@color/darkGrey"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         tools:ignore="TextSizeCheck" />
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/ic_arrow_left_dark_grey" />
+                        android:src="@drawable/ic_arrow_left_dark_grey"
+                        tools:ignore="ContentDescription" />
 
                 </LinearLayout>
 
@@ -285,7 +289,7 @@
                         android:fontFamily="@font/roboto_reguler"
                         android:text="Language"
                         android:textColor="@color/darkGrey"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         tools:ignore="TextSizeCheck" />
 
                     <ImageView

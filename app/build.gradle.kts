@@ -75,6 +75,16 @@ implementation("androidx.legacy:legacy-support-v4:1.0.0")
     val roundedImageVersion = "2.3.0"
     implementation ("com.makeramen:roundedimageview:$roundedImageVersion")
 
+    //    Paging 3
+    val pagingVersion = "3.1.1"
+    implementation("androidx.paging:paging-runtime-ktx:$pagingVersion")
+
+    //    Glide
+    val glideVersion = "4.16.0"
+    implementation("com.github.bumptech.glide:glide:$glideVersion")
+
+
+
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
