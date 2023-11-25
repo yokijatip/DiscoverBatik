@@ -163,6 +163,7 @@
             android:layout_height="52dp"
             android:fontFamily="@font/roboto_reguler"
             android:hint="@string/password"
+            android:inputType="textPassword"
             android:textSize="15sp"
             tools:ignore="SpeakableTextPresentCheck" />
 
