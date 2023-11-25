@@ -29,9 +29,6 @@ interface ApiService {
     ): Call<RegisterResponse>
 
     @GET("stories")
-    suspend fun getStories(
-        @Query("page") page: Int? = null,
-        @Query("size") size: Int? = null
-    ): Response<PopularItemResponse>
+    suspend fun getStories(): PopularItemResponse
 
 }

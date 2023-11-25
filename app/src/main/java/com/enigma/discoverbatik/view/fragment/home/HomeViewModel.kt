@@ -1,18 +1,30 @@
 package com.enigma.discoverbatik.view.fragment.home
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.paging.PagingData
-import androidx.paging.cachedIn
 import com.enigma.discoverbatik.data.remote.response.ListStoryItem
+import com.enigma.discoverbatik.data.remote.response.PopularItemResponse
 import com.enigma.discoverbatik.repository.Repository
+import kotlinx.coroutines.launch
 
-class HomeViewModel(repository: Repository) : ViewModel() {
+class HomeViewModel(private val repository: Repository) : ViewModel() {
 
-    val getStory: LiveData<PagingData<ListStoryItem>> =
-        repository.getItemPopular().cachedIn(viewModelScope)
+    private val _popularItems = MutableLiveData<PopularItemResponse>()
+    val popularItems: LiveData<PopularItemResponse> get() = _popularItems
+
+    fun fetchPopularItems() {
+        viewModelScope.launch {
+            try {
+                val popularItems = repository.getStory()
+                _popularItems.value = popularItems
+            } catch (e: Exception) {
+                throw e
+            }
+        }
+    }
 
 
 }
