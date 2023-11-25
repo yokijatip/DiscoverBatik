@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.enigma.discoverbatik.R
 import com.enigma.discoverbatik.view.activity.login.LoginActivity
@@ -66,6 +67,10 @@ object CommonUtils {
 
     fun loading(view: View, state: Boolean) {
         view.visibility = if (state) View.VISIBLE else View.GONE
+    }
+
+    fun showToast(context: Context, message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
 }
