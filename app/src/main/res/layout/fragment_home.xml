@@ -1,277 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:overScrollMode="ifContentScrolls"
+    app:layout_scrollEffect="compress"
     tools:context=".view.fragment.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_reguler"
-            android:text="Location"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/tv_location"
-            app:layout_constraintStart_toStartOf="@+id/vertical_start"
-            app:layout_constraintTop_toTopOf="@+id/iv_user_profile"
-            app:layout_constraintVertical_chainStyle="packed" />
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/tv_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            android:fontFamily="@font/roboto_reguler"
+            android:text="Location"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_content_location"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toTopOf="@+id/btn_shopping_bag"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tv_content_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
             android:fontFamily="@font/roboto_bold"
             android:text="Bandung, Indonesia"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_user_profile"
-            app:layout_constraintStart_toStartOf="@+id/vertical_start"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            app:layout_constraintBottom_toBottomOf="@+id/btn_shopping_bag"
+            app:layout_constraintStart_toStartOf="@+id/tv_location"
+            app:layout_constraintTop_toBottomOf="@+id/tv_location" />
 
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/iv_user_profile"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:elevation="8dp"
-            android:src="@drawable/user_profile"
-            app:layout_constraintEnd_toStartOf="@+id/vertical_end"
-            app:layout_constraintTop_toTopOf="@+id/horizontal_top"
-            app:riv_corner_radius="60dip" />
+        <ImageView
+            android:id="@+id/btn_shopping_bag"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/ic_shopping_bag"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/horizontal_top"
+            android:id="@+id/guideline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="32dp" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/vertical_start"
+            android:id="@+id/guideline5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_begin="32dp" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/vertical_end"
+            android:id="@+id/guideline6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_end="32dp" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/horizontal_top_2"
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/banner_home"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="88dp" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="126dp"
             android:layout_marginTop="32dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/banner_home"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/horizontal_top_2" />
+            android:backgroundTint="@color/black"
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            app:layout_constraintEnd_toStartOf="@+id/vertical_end"
-            app:layout_constraintStart_toStartOf="@+id/vertical_start"
-            app:layout_constraintTop_toBottomOf="@+id/imageView">
+            app:cardCornerRadius="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toBottomOf="@+id/tv_content_location">
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:layout_weight="1"
-                android:background="@drawable/shape_medium_16dp"
-                android:backgroundTint="@color/black">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_marginStart="32dp"
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/card_home1"
+                    android:textColor="@color/white"
 
-                        <TextView
-                            android:id="@+id/textView8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="14dp"
-                            android:layout_marginTop="14dp"
-                            android:fontFamily="@font/roboto_medium"
-                            android:text="@string/card_home1"
-                            android:textColor="@color/white"
-                            android:textSize="16sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="4dp"
-                            android:layout_marginEnd="14dp"
-                            android:layout_marginBottom="14dp"
-                            android:src="@drawable/ic_camera"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/textView8"
-                            app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_weight="1"
-                android:background="@drawable/shape_medium_16dp"
-                android:backgroundTint="@color/black">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_camera"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="24dp"
+                    android:backgroundTint="@color/white"
+                    android:text="Camera"
+                    android:textColor="@color/black"
+                    app:cornerRadius="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="131dp"
+                    android:layout_height="154dp"
+                    android:src="@drawable/camera_illustration"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/tv_shopping_bag"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="14dp"
-                            android:layout_marginTop="14dp"
-                            android:fontFamily="@font/roboto_medium"
-                            android:text="@string/card_home2"
-                            android:textColor="@color/white"
-                            android:textSize="16sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="4dp"
-                            android:layout_marginEnd="14dp"
-                            android:layout_marginBottom="14dp"
-                            android:src="@drawable/ic_shopping_bag"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/tv_shopping_bag"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_shopping_bag" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            </com.google.android.material.card.MaterialCardView>
-        </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:layout_constraintEnd_toStartOf="@+id/vertical_end"
-            app:layout_constraintStart_toStartOf="@+id/vertical_start"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Popular"
-                android:textSize="14dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:text="See all"
-                android:textColor="@color/orange"
-                android:textSize="12dp" />
-
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_home"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-            tools:itemCount="1"
-            tools:listitem="@layout/list_item_popular_batik" />
-
-        <LinearLayout
-            android:id="@+id/tv_shopping_list"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:layout_constraintEnd_toStartOf="@+id/vertical_end"
-            app:layout_constraintStart_toStartOf="@+id/vertical_start"
-            app:layout_constraintTop_toBottomOf="@+id/rv_home">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Batik House"
-                android:textSize="14dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:text="See all"
-                android:textColor="@color/orange"
-                android:textSize="12dp" />
-
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_shop"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_shopping_list"
-            tools:itemCount="1"
-            tools:listitem="@layout/list_item_shop" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
 

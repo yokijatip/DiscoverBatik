@@ -5,23 +5,24 @@
     <item
         android:id="@+id/home"
         android:icon="@drawable/ic_home"
-        tools:ignore="MenuTitle" />
+        android:title="Home"
+        />
 
     <item
         android:id="@+id/explore"
         android:icon="@drawable/ic_compass"
-        tools:ignore="MenuTitle"
+        android:title="Explore"
 
         />
 
     <item
         android:id="@+id/favorite"
         android:icon="@drawable/ic_heart"
-        tools:ignore="MenuTitle" />
+        android:title="Favorite" />
 
     <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_user"
-        tools:ignore="MenuTitle" />
+        android:title="Profile" />
 
 </menu>

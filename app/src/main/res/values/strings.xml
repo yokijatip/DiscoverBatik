@@ -41,4 +41,13 @@
     <string name="shop_description2">fabric, other stuff</string>
     <string name="shop_description3">Clother, other stuff</string>
 
+    <string-array name="list_item_category_name">
+        <item>All</item>
+        <item>Popular</item>
+        <item>Shop</item>
+        <item>T-shirt</item>
+        <item>Pants</item>
+        <item>Fabric</item>
+    </string-array>
+
 </resources>

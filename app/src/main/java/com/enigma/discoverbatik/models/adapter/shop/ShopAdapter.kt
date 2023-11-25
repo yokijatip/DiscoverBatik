@@ -1,4 +1,4 @@
-package com.enigma.discoverbatik.models.adapter.popular
+package com.enigma.discoverbatik.models.adapter.shop
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,11 +10,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.enigma.discoverbatik.data.remote.response.ListStoryItem
 import com.enigma.discoverbatik.databinding.ListItemPopularBatikBinding
+import com.enigma.discoverbatik.databinding.ListItemShopBinding
 
-class PopularAdapter :
-    PagingDataAdapter<ListStoryItem, PopularAdapter.StoryViewHolder>(DIFF_CALLBACK) {
+class ShopAdapter :
+    PagingDataAdapter<ListStoryItem, ShopAdapter.StoryViewHolder>(DIFF_CALLBACK) {
 
-    inner class StoryViewHolder(private val binding: ListItemPopularBatikBinding) :
+    inner class StoryViewHolder(private val binding: ListItemShopBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(context: Context, storyItem: ListStoryItem) {
 
@@ -35,7 +36,8 @@ class PopularAdapter :
         parent: ViewGroup,
         viewType: Int
     ): StoryViewHolder {
-        val view = ListItemPopularBatikBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view =
+            ListItemShopBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return StoryViewHolder(view)
     }
 
