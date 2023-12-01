@@ -38,7 +38,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
 //        Setting Recycler View Popular Batik
         popularAdapter = PopularAdapter()
         val recyclerView: RecyclerView = view.findViewById(R.id.rv_popular_batik)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = popularAdapter
 
         observerViewModelPopularBatik()
@@ -65,7 +65,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     private fun observerViewModelPopularBatik() {
         homeViewModel.popularItems.observe(viewLifecycleOwner) { popularItems ->
             popularItems?.listStory?.let {
-                val limitedList = it.take(4)
+                val limitedList = it.take(20)
                 popularAdapter.setData(limitedList)
             }
         }

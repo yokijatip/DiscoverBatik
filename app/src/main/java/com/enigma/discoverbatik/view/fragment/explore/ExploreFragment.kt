@@ -8,13 +8,21 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.enigma.discoverbatik.R
+import com.enigma.discoverbatik.di.Injection
+import com.enigma.discoverbatik.models.adapter.explore.ExploreAdapter
 
 
 class ExploreFragment : Fragment(), View.OnClickListener {
 
     private lateinit var editText: EditText
     private lateinit var textView: TextView
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var exploreViewModel: ExploreViewModel
+    private lateinit var adapter: ExploreAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,26 +34,42 @@ class ExploreFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+//        editText = view.findViewById(R.id.search_bar)
+//        editText.setOnKeyListener { _, keyCode, event ->
+//            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+//                handleTextSubmission()
+//                true
+//            } else {
+//                false
+//            }
+//        }
 
-        editText = view.findViewById(R.id.search_bar)
-        textView = view.findViewById(R.id.hello_world)
+        val repository = Injection.provideRepository(requireContext())
+        val factory = ViewModelFactory(repository)
+        exploreViewModel = ViewModelProvider(this, factory)[ExploreViewModel::class.java]
 
-        editText.setOnKeyListener { _, keyCode, event ->
+        recyclerView = view.findViewById(R.id.rv_explore)
+        adapter = ExploreAdapter()
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+        recyclerView.adapter = adapter
 
-            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
-                handleTextSubmission()
-                true
-            } else {
-                false
-            }
-
-        }
+        observer()
+        exploreViewModel.getStudiItem()
 
     }
 
-    private fun handleTextSubmission() {
-        val enteredText = editText.text.toString()
-        textView.text = enteredText
+//    private fun handleTextSubmission() {
+//        val enteredText = editText.text.toString()
+//        textView.text = enteredText
+//    }
+
+    private fun observer() {
+        exploreViewModel.dataItems.observe(viewLifecycleOwner) { dataItems ->
+            dataItems?.listStory?.let {
+                val limitedList = it.take(20)
+                adapter.setData(limitedList)
+            }
+        }
     }
 
     override fun onClick(v: View?) {

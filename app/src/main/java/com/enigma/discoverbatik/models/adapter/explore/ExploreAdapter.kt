@@ -1,4 +1,4 @@
-package com.enigma.discoverbatik.models.adapter.popular
+package com.enigma.discoverbatik.models.adapter.explore
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.enigma.discoverbatik.data.remote.response.ListStoryItem
-import com.enigma.discoverbatik.databinding.ListItemPopularBatikBinding
+import com.enigma.discoverbatik.databinding.ListItemExploreBinding
 import com.enigma.discoverbatik.databinding.ListItemPopularBatikSmallCardBinding
 
-class PopularAdapter : RecyclerView.Adapter<PopularAdapter.StoryViewHolder>() {
+class ExploreAdapter : RecyclerView.Adapter<ExploreAdapter.StoryViewHolder>() {
 
     private var listItem: List<ListStoryItem> = emptyList()
 
@@ -20,7 +20,7 @@ class PopularAdapter : RecyclerView.Adapter<PopularAdapter.StoryViewHolder>() {
         notifyDataSetChanged()
     }
 
-    inner class StoryViewHolder(private val binding: ListItemPopularBatikBinding) :
+    inner class StoryViewHolder(private val binding: ListItemExploreBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(storyItem: ListStoryItem) {
 
@@ -32,13 +32,12 @@ class PopularAdapter : RecyclerView.Adapter<PopularAdapter.StoryViewHolder>() {
                     .into(ivContentImage)
                 tvContentTitle.text = storyItem.name
                 tvContentLocation.text = storyItem.createdAt
-                tvContentDescription.text = storyItem.description
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryViewHolder {
-        val view = ListItemPopularBatikBinding.inflate(
+        val view = ListItemExploreBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false

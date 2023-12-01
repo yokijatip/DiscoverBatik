@@ -94,11 +94,11 @@
                     android:layout_marginStart="32dp"
 
                     android:layout_marginTop="24dp"
-                    android:fontFamily="@font/roboto_bold"
+                    android:fontFamily="@font/roboto_black"
                     android:text="@string/card_home1"
                     android:textColor="@color/white"
 
-                    android:textSize="20sp"
+                    android:textSize="26sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -119,11 +119,13 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
                 <ImageView
-                    android:layout_width="131dp"
-                    android:layout_height="154dp"
+                    android:layout_width="141dp"
+                    android:layout_height="164dp"
                     android:src="@drawable/camera_illustration"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.74"
+                    app:layout_constraintStart_toEndOf="@+id/btn_camera"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -169,7 +171,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_popular_see_all_layout"
             tools:itemCount="4"
-            tools:listitem="@layout/list_item_popular_batik_small_card" />
+            tools:listitem="@layout/list_item_popular_batik" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
