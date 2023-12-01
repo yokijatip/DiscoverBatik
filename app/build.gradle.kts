@@ -84,6 +84,9 @@ dependencies {
     val glideVersion = "4.16.0"
     implementation("com.github.bumptech.glide:glide:$glideVersion")
 
+    //    View Pager 2
+    val viewPager2Version = "1.0.0"
+    implementation("androidx.viewpager2:viewpager2:$viewPager2Version")
 
 
 

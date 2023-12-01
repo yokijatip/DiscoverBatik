@@ -11,6 +11,7 @@ import com.enigma.discoverbatik.R
 import com.enigma.discoverbatik.data.local.preferences.TokenPreferences
 import com.enigma.discoverbatik.data.local.preferences.dataStore
 import com.enigma.discoverbatik.databinding.ActivitySplashBinding
+import com.enigma.discoverbatik.view.activity.detail.DetailActivity
 import com.enigma.discoverbatik.view.activity.landing.LandingActivity
 import com.enigma.discoverbatik.view.activity.main.MainActivity
 import kotlinx.coroutines.launch

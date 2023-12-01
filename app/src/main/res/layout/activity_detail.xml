@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.cart.CartActivity">
+    tools:context=".view.activity.detail.DetailActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical_left_16dp"
@@ -41,6 +41,46 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="48dp" />
 
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
+        app:layout_constraintStart_toStartOf="@+id/vertical_left_16dp"
+        app:layout_constraintTop_toTopOf="@+id/guideline">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pattern" />
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_favorite"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/white"
+            android:contentDescription="Favorite"
+            android:foregroundGravity="center"
+            android:src="@drawable/ic_heart"
+            app:fabCustomSize="60dp"
+            app:rippleColor="@color/grey"
+            app:tint="@color/black"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+    </FrameLayout>
+
     <ImageView
         android:id="@+id/btn_back"
         android:layout_width="32dp"
@@ -53,56 +93,54 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tv_detail_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
-
-        android:text="Cart"
+        android:text="Detail"
         android:textColor="@color/black"
         android:textSize="22sp"
-
         app:layout_constraintBottom_toBottomOf="@+id/btn_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/horizontal2_top_dp" />
 
     <TextView
+        android:id="@+id/tv_detail_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-
         android:fontFamily="@font/roboto_medium"
-        android:textSize="16sp"
+        android:text="Price per square meter"
         android:textColor="@color/darkGrey"
-
-        app:layout_constraintBottom_toTopOf="@+id/btn_checkout"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_buy"
         app:layout_constraintStart_toStartOf="@+id/vertical2_left_32dp"
-        android:text="Total" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_price" />
 
     <TextView
+        android:id="@+id/tv_detail_price"
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
-
-        android:layout_marginBottom="24dp"
         android:fontFamily="@font/roboto_bold"
+        android:text="Rp.19.000"
         android:textColor="@color/black"
-
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_checkout"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        android:text="Rp.19.000" />
+        app:layout_constraintBottom_toTopOf="@+id/tv_detail_type"
+        app:layout_constraintStart_toStartOf="@+id/vertical2_left_32dp"
+        app:layout_constraintTop_toTopOf="@+id/btn_buy" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_checkout"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
+        android:id="@+id/btn_buy"
+        android:layout_width="100dp"
+        android:layout_height="62dp"
         android:layout_marginBottom="38dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="Checkout"
+        android:text="Buy"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="@+id/vertical2_left_32dp" />
+        app:strokeColor="@color/orange" />
 
     <ProgressBar
         android:id="@+id/loading"

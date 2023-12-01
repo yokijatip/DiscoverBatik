@@ -17,10 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun fragmentManager(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.setCustomAnimations(
-            R.anim.fade_in,
-            R.anim.fade_out
-        )
+
         transaction.replace(R.id.content, fragment, fragment.javaClass.simpleName)
         transaction.commit()
     }
