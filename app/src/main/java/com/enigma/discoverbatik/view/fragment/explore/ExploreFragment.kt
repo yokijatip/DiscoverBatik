@@ -18,8 +18,8 @@ import com.enigma.discoverbatik.models.adapter.explore.ExploreAdapter
 
 class ExploreFragment : Fragment(), View.OnClickListener {
 
-    private lateinit var editText: EditText
-    private lateinit var textView: TextView
+//    private lateinit var editText: EditText
+//    private lateinit var textView: TextView
     private lateinit var recyclerView: RecyclerView
     private lateinit var exploreViewModel: ExploreViewModel
     private lateinit var adapter: ExploreAdapter
