@@ -14,13 +14,6 @@
         app:layout_constraintGuide_begin="16dp" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/vertical2_left_32dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="32dp" />
-
-    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical_right_16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="48dp" />
+        app:layout_constraintGuide_begin="32dp" />
 
     <ImageView
         android:id="@+id/btn_back"
@@ -76,7 +69,7 @@
         android:textColor="@color/darkGrey"
 
         app:layout_constraintBottom_toTopOf="@+id/btn_checkout"
-        app:layout_constraintStart_toStartOf="@+id/vertical2_left_32dp"
+        app:layout_constraintStart_toStartOf="@+id/vertical_left_16dp"
         android:text="Total" />
 
     <TextView
@@ -89,7 +82,7 @@
 
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_checkout"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
         android:text="Rp.19.000" />
 
     <com.google.android.material.button.MaterialButton
@@ -101,8 +94,8 @@
         android:text="Checkout"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="@+id/vertical2_left_32dp" />
+        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
+        app:layout_constraintStart_toStartOf="@+id/vertical_left_16dp" />
 
     <ProgressBar
         android:id="@+id/loading"
@@ -115,18 +108,5 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="104dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="32dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

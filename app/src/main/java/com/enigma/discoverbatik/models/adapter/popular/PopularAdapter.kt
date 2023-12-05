@@ -1,6 +1,8 @@
 package com.enigma.discoverbatik.models.adapter.popular
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.enigma.discoverbatik.data.remote.response.ListStoryItem
 import com.enigma.discoverbatik.databinding.ListItemPopularBatikBinding
-import com.enigma.discoverbatik.databinding.ListItemPopularBatikSmallCardBinding
+import com.enigma.discoverbatik.view.activity.detail.DetailActivity
 
 class PopularAdapter : RecyclerView.Adapter<PopularAdapter.StoryViewHolder>() {
 
@@ -22,7 +24,13 @@ class PopularAdapter : RecyclerView.Adapter<PopularAdapter.StoryViewHolder>() {
 
     inner class StoryViewHolder(private val binding: ListItemPopularBatikBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(storyItem: ListStoryItem) {
+        fun bind(context: Context,storyItem: ListStoryItem) {
+
+            binding.root.setOnClickListener {
+                val intent = Intent(context, DetailActivity::class.java)
+                intent.putExtra("extra_id", storyItem.id)
+                context.startActivity(intent)
+            }
 
             binding.apply {
                 Glide.with(itemView)
@@ -49,7 +57,7 @@ class PopularAdapter : RecyclerView.Adapter<PopularAdapter.StoryViewHolder>() {
     override fun getItemCount() = listItem.size
 
     override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
-        holder.bind(listItem[position])
+        holder.bind(holder.itemView.context,listItem[position])
     }
 
 }

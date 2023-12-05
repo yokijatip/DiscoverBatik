@@ -1,5 +1,6 @@
 package com.enigma.discoverbatik.repository
 
+import com.enigma.discoverbatik.data.remote.response.DetailResponse
 import com.enigma.discoverbatik.data.remote.response.LoginResponse
 import com.enigma.discoverbatik.data.remote.response.PopularItemResponse
 import com.enigma.discoverbatik.data.remote.response.RegisterResponse
@@ -42,6 +43,19 @@ class Repository(
     //    Fungsi Buat Get Item Popular
     suspend fun getStory(): PopularItemResponse {
         return apiService.getStories()
+    }
+
+    suspend fun getDetailById(id: String): DetailResponse {
+         try {
+            val response = apiService.getDetailById(id)
+             if (response.error == false) {
+                 return response
+             } else {
+                 throw Exception("Gagal Mendapatkan Detail")
+             }
+        }catch (e: Exception) {
+            throw e
+        }
     }
 
 
