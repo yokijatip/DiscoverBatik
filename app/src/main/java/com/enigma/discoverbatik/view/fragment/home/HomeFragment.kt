@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.enigma.discoverbatik.R
 import com.enigma.discoverbatik.di.Injection
 import com.enigma.discoverbatik.models.adapter.popular.PopularAdapter
+import com.enigma.discoverbatik.view.activity.camera.CameraActivity
+import com.enigma.discoverbatik.view.activity.camera.OpenCameraActivity
 import com.enigma.discoverbatik.view.activity.cart.CartActivity
 
 
@@ -38,7 +41,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
 //        Setting Recycler View Popular Batik
         popularAdapter = PopularAdapter()
         val recyclerView: RecyclerView = view.findViewById(R.id.rv_popular_batik)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = popularAdapter
 
         observerViewModelPopularBatik()
@@ -49,8 +53,12 @@ class HomeFragment : Fragment(), View.OnClickListener {
             navigateToCartActivity()
         }
 
-    }
+        val btnCamera = view.findViewById<Button>(R.id.btn_camera)
+        btnCamera.setOnClickListener {
+            navigateToCameraActivity()
+        }
 
+    }
 
     override fun onClick(v: View?) {
         TODO("Not yet implemented")
@@ -59,6 +67,11 @@ class HomeFragment : Fragment(), View.OnClickListener {
     //    Move to Cart Activity
     private fun navigateToCartActivity() {
         val intent = Intent(this@HomeFragment.requireContext(), CartActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun navigateToCameraActivity() {
+        val intent = Intent(this@HomeFragment.requireContext(), OpenCameraActivity::class.java)
         startActivity(intent)
     }
 

@@ -88,6 +88,16 @@ dependencies {
     val viewPager2Version = "1.0.0"
     implementation("androidx.viewpager2:viewpager2:$viewPager2Version")
 
+    //    CameraX
+    val cameraXversion = "1.2.2"
+    implementation ("androidx.camera:camera-core:$cameraXversion")
+    implementation ("androidx.camera:camera-camera2:$cameraXversion")
+    implementation ("androidx.camera:camera-lifecycle:$cameraXversion")
+    implementation ("androidx.camera:camera-video:$cameraXversion")
+
+    implementation ("androidx.camera:camera-view:$cameraXversion")
+    implementation ("androidx.camera:camera-extensions:$cameraXversion")
+
 
 
 

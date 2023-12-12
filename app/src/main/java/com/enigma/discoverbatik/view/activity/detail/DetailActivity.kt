@@ -17,14 +17,12 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var detailViewModel: DetailViewModel
 
     //    State apakah item sudah dimasukkan ke favorite?
-//    dan ini state buat floating action button
+    //    dan ini state buat floating action button
     private var isFavorite = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         detailBinding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(detailBinding.root)
-
-
 
         detailBinding.fabFavorite.setOnClickListener {
             isFavorite = !isFavorite
@@ -34,12 +32,10 @@ class DetailActivity : AppCompatActivity() {
 
         val repository = Injection.provideRepository(this@DetailActivity)
         val factory = ViewModelFactory(repository)
-        detailViewModel =
-            ViewModelProvider(this@DetailActivity, factory)[DetailViewModel::class.java]
+        detailViewModel = ViewModelProvider(this@DetailActivity, factory)[DetailViewModel::class.java]
 
         getDetailId()
         getDetail()
-
     }
 
     private fun getDetail() {
@@ -51,10 +47,8 @@ class DetailActivity : AppCompatActivity() {
                         .transition(DrawableTransitionOptions.withCrossFade())
                         .centerCrop()
                         .into(ivContentImage)
-
                 }
             }
-
         }
     }
 
