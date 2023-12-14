@@ -31,6 +31,7 @@ android {
     buildFeatures {
         viewBinding = true
         buildConfig = true
+        mlModelBinding = true
     }
 
     compileOptions {
@@ -47,6 +48,12 @@ dependencies {
 
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+
+    //    Tensor Flow Lite
+    implementation("org.tensorflow:tensorflow-lite-metadata:0.1.0")
+    implementation("org.tensorflow:tensorflow-lite-gpu:2.3.0")
+    implementation("org.tensorflow:tensorflow-lite-task-vision:0.4.4")
+
     //    Retrofit
     val retrofitVersion = "2.9.0"
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
@@ -90,15 +97,13 @@ dependencies {
 
     //    CameraX
     val cameraXversion = "1.2.2"
-    implementation ("androidx.camera:camera-core:$cameraXversion")
-    implementation ("androidx.camera:camera-camera2:$cameraXversion")
-    implementation ("androidx.camera:camera-lifecycle:$cameraXversion")
-    implementation ("androidx.camera:camera-video:$cameraXversion")
+    implementation("androidx.camera:camera-core:$cameraXversion")
+    implementation("androidx.camera:camera-camera2:$cameraXversion")
+    implementation("androidx.camera:camera-lifecycle:$cameraXversion")
+    implementation("androidx.camera:camera-video:$cameraXversion")
 
-    implementation ("androidx.camera:camera-view:$cameraXversion")
-    implementation ("androidx.camera:camera-extensions:$cameraXversion")
-
-
+    implementation("androidx.camera:camera-view:$cameraXversion")
+    implementation("androidx.camera:camera-extensions:$cameraXversion")
 
 
     implementation("androidx.core:core-ktx:1.9.0")

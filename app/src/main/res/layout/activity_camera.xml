@@ -11,6 +11,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    <TextView
+        android:id="@+id/tv_display_object"
+        android:textSize="22sp"
+        tools:text="Testing"
+        android:lines="3"
+        android:maxLines="3"
+        android:fontFamily="@font/roboto_bold"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/image_capture"
         android:layout_width="72dp"
