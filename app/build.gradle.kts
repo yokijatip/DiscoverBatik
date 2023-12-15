@@ -51,8 +51,7 @@ dependencies {
 
     //    Tensor Flow Lite
     implementation("org.tensorflow:tensorflow-lite-metadata:0.1.0")
-    implementation("org.tensorflow:tensorflow-lite-gpu:2.3.0")
-    implementation("org.tensorflow:tensorflow-lite-task-vision:0.4.4")
+    implementation("org.tensorflow:tensorflow-lite-support:0.1.0")
 
     //    Retrofit
     val retrofitVersion = "2.9.0"
