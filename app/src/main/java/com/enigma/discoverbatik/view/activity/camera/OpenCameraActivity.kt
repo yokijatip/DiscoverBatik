@@ -82,13 +82,10 @@ class OpenCameraActivity : AppCompatActivity() {
                 startGallery()
             }
 
-            //  Kalau di klik akan auto search ke google
-            tvLabel.setOnClickListener {
+            btnFind.setOnClickListener {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?q=${tvLabel.text}"))
                 startActivity(intent)
             }
-
-
         }
     }
 
@@ -108,13 +105,6 @@ class OpenCameraActivity : AppCompatActivity() {
                 Log.d("Image Uri", "Photo Picker : No Media Selected")
             }
         }
-
-    private fun showImage() {
-        currentImageUri?.let {
-            Log.d("Image Uri", "Show Uri : $it")
-            binding.contentImage.setImageURI(it)
-        }
-    }
 
     //    Start Intent Gallery END 👋
 
@@ -161,7 +151,7 @@ class OpenCameraActivity : AppCompatActivity() {
     ) {
         if (it.resultCode == CAMERAX_RESULT) {
             currentImageUri = it.data?.getStringExtra(CameraActivity.EXTRA_CAMERAX_IMAGE)?.toUri()
-            showImage()
+            convertImageToBitmap()
         }
     }
 
