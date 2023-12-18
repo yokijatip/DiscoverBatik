@@ -6,11 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.enigma.discoverbatik.R
 import com.enigma.discoverbatik.databinding.ActivityDetailBinding
 import com.enigma.discoverbatik.di.Injection
-import com.enigma.discoverbatik.utils.CommonUtils
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class DetailActivity : AppCompatActivity() {
 
@@ -31,7 +28,6 @@ class DetailActivity : AppCompatActivity() {
         getDetail()
         generateRandomRatingNumber()
     }
-
 
 
     private fun getDetail() {
