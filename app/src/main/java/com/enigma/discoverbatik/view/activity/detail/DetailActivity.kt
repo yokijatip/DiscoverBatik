@@ -1,6 +1,7 @@
 package com.enigma.discoverbatik.view.activity.detail
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -32,14 +33,15 @@ class DetailActivity : AppCompatActivity() {
 
         val repository = Injection.provideRepository(this@DetailActivity)
         val factory = ViewModelFactory(repository)
-        detailViewModel = ViewModelProvider(this@DetailActivity, factory)[DetailViewModel::class.java]
+        detailViewModel =
+            ViewModelProvider(this@DetailActivity, factory)[DetailViewModel::class.java]
 
         getDetailId()
         getDetail()
     }
 
     private fun getDetail() {
-        detailViewModel.getDetailLiveData().observe(this@DetailActivity) {content ->
+        detailViewModel.batikDetail.observe(this@DetailActivity) { content ->
             if (content != null) {
                 detailBinding.apply {
                     Glide.with(this@DetailActivity)
@@ -48,15 +50,19 @@ class DetailActivity : AppCompatActivity() {
                         .centerCrop()
                         .into(ivContentImage)
                 }
+                detailBinding.tvContentTitle.text = content.batikName
+                detailBinding.tvContentLocation.text = content.asalDaerah
+                detailBinding.tvContentPrice.text = content.price.toString()
+                detailBinding.tvContentTechnique.text = content.technique
+                detailBinding.tvContentDescription.text = content.content
             }
         }
     }
 
     private fun getDetailId() {
-        val id = intent.getStringExtra("extra_id")
-        if (id != null) {
-            detailViewModel.getDetailById(id)
-        }
+        val id = intent.getIntExtra("extra_id", -1)
+        Log.d("Waduh id", "Id Item : $id")
+        detailViewModel.getDetailById(id)
     }
 
     private fun updateFabIcon(fab: FloatingActionButton) {

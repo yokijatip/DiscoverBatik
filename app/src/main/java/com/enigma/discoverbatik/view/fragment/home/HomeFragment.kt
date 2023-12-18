@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.enigma.discoverbatik.R
 import com.enigma.discoverbatik.di.Injection
 import com.enigma.discoverbatik.models.adapter.popular.PopularAdapter
-import com.enigma.discoverbatik.view.activity.camera.CameraActivity
 import com.enigma.discoverbatik.view.activity.camera.OpenCameraActivity
 import com.enigma.discoverbatik.view.activity.cart.CartActivity
 
@@ -76,11 +75,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     private fun observerViewModelPopularBatik() {
-        homeViewModel.popularItems.observe(viewLifecycleOwner) { popularItems ->
-            popularItems?.listStory?.let {
-                val limitedList = it.take(20)
-                popularAdapter.setData(limitedList)
-            }
+        homeViewModel.popularItems.observe(viewLifecycleOwner) {
+            popularAdapter.setData(it)
         }
     }
 

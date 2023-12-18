@@ -40,11 +40,9 @@
 
         <ImageView
             android:id="@+id/btn_shopping_bag"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
 
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="6dp"
             android:src="@drawable/ic_shopping_bag"
             app:layout_constraintEnd_toStartOf="@+id/guideline6"
             app:layout_constraintTop_toTopOf="@+id/guideline4" />
@@ -137,7 +135,7 @@
             android:id="@+id/tv_popular_see_all_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline6"
             app:layout_constraintStart_toStartOf="@+id/guideline5"
             app:layout_constraintTop_toBottomOf="@+id/banner_home">
@@ -165,7 +163,6 @@
             android:id="@+id/rv_popular_batik"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

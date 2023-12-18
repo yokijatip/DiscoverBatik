@@ -2,9 +2,10 @@ package com.enigma.discoverbatik.repository
 
 import com.enigma.discoverbatik.data.remote.response.DetailResponse
 import com.enigma.discoverbatik.data.remote.response.LoginResponse
-import com.enigma.discoverbatik.data.remote.response.PopularItemResponse
+import com.enigma.discoverbatik.data.remote.response.PopularBatikResponse
 import com.enigma.discoverbatik.data.remote.response.RegisterResponse
 import com.enigma.discoverbatik.data.remote.service.ApiService
+import retrofit2.Response
 import retrofit2.awaitResponse
 
 class Repository(
@@ -41,21 +42,12 @@ class Repository(
     }
 
     //    Fungsi Buat Get Item Popular
-    suspend fun getStory(): PopularItemResponse {
-        return apiService.getStories()
+    suspend fun getAllBatik(): Response<List<PopularBatikResponse>> {
+        return apiService.getAllBatik()
     }
 
-    suspend fun getDetailById(id: String): DetailResponse {
-         try {
-            val response = apiService.getDetailById(id)
-             if (response.error == false) {
-                 return response
-             } else {
-                 throw Exception("Gagal Mendapatkan Detail")
-             }
-        }catch (e: Exception) {
-            throw e
-        }
+    suspend fun getDetailById(id: Int): DetailResponse {
+         return apiService.getDetailById(id)
     }
 
 
