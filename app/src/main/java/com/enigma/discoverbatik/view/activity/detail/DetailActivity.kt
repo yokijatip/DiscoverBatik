@@ -17,19 +17,10 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var detailBinding: ActivityDetailBinding
     private lateinit var detailViewModel: DetailViewModel
 
-    //    State apakah item sudah dimasukkan ke favorite?
-    //    dan ini state buat floating action button
-    private var isFavorite = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         detailBinding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(detailBinding.root)
-
-        detailBinding.fabFavorite.setOnClickListener {
-            isFavorite = !isFavorite
-            updateFabIcon(detailBinding.fabFavorite)
-            CommonUtils.showToast(this@DetailActivity, "Favorite Items 😄")
-        }
 
         val repository = Injection.provideRepository(this@DetailActivity)
         val factory = ViewModelFactory(repository)
@@ -38,7 +29,10 @@ class DetailActivity : AppCompatActivity() {
 
         getDetailId()
         getDetail()
+        generateRandomRatingNumber()
     }
+
+
 
     private fun getDetail() {
         detailViewModel.batikDetail.observe(this@DetailActivity) { content ->
@@ -59,17 +53,16 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    private fun generateRandomRatingNumber() {
+        val random = (1.1 + Math.random() * (5.0 - 1.1)).toFloat()
+        val formattedNumber = String.format("%.2f", random)
+
+        detailBinding.tvRating.text = formattedNumber
+    }
+
     private fun getDetailId() {
         val id = intent.getIntExtra("extra_id", -1)
         Log.d("Waduh id", "Id Item : $id")
         detailViewModel.getDetailById(id)
-    }
-
-    private fun updateFabIcon(fab: FloatingActionButton) {
-        if (isFavorite) {
-            fab.setImageResource(R.drawable.ic_heart_filled)
-        } else {
-            fab.setImageResource(R.drawable.ic_heart)
-        }
     }
 }
