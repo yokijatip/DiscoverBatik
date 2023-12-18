@@ -1,12 +1,9 @@
 package com.enigma.discoverbatik.view.fragment.explore
 
 import android.os.Bundle
-import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -18,7 +15,7 @@ import com.enigma.discoverbatik.models.adapter.explore.ExploreAdapter
 
 class ExploreFragment : Fragment(), View.OnClickListener {
 
-//    private lateinit var editText: EditText
+    //    private lateinit var editText: EditText
 //    private lateinit var textView: TextView
     private lateinit var recyclerView: RecyclerView
     private lateinit var exploreViewModel: ExploreViewModel
@@ -64,11 +61,8 @@ class ExploreFragment : Fragment(), View.OnClickListener {
 //    }
 
     private fun observer() {
-        exploreViewModel.dataItems.observe(viewLifecycleOwner) { dataItems ->
-            dataItems?.listStory?.let {
-                val limitedList = it.take(20)
-                adapter.setData(limitedList)
-            }
+        exploreViewModel.dataItems.observe(viewLifecycleOwner) {
+            adapter.setData(it)
         }
     }
 

@@ -27,18 +27,11 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="24dp" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontal2_top_dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="32dp" />
-
     <ImageView
         android:id="@+id/btn_back"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="16dp"
         android:rotation="180"
         android:src="@drawable/ic_arrow_left"
         app:layout_constraintBottom_toBottomOf="@+id/textView9"
@@ -47,9 +40,9 @@
 
     <ImageView
         android:id="@+id/btn_camera"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/ic_camera"
         app:layout_constraintBottom_toBottomOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,12 +53,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Find Pattern"
 
         android:textColor="@color/black"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -74,7 +67,7 @@
         android:id="@+id/cardView"
         android:layout_width="0dp"
         android:layout_height="280dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         app:cardCornerRadius="16dp"
         android:elevation="4dp"
         app:cardElevation="4dp"
@@ -96,8 +89,7 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Tips"
         android:textSize="18sp"
@@ -108,12 +100,11 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:ellipsize="end"
         android:fontFamily="@font/roboto_reguler"
         android:text="1. Find the bright places"
         android:textSize="14sp"
-        android:ellipsize="end"
         app:layout_constraintStart_toStartOf="@+id/vertical_left_16dp"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -122,7 +113,6 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="2dp"
         android:ellipsize="end"
         android:fontFamily="@font/roboto_reguler"
@@ -135,7 +125,6 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="2dp"
         android:ellipsize="end"
         android:fontFamily="@font/roboto_reguler"
@@ -148,7 +137,6 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="2dp"
         android:ellipsize="end"
         android:fontFamily="@font/roboto_reguler"
@@ -185,11 +173,11 @@
         android:layout_width="0dp"
         android:layout_height="62dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
-        app:cornerRadius="16dp"
+        android:layout_marginBottom="24dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Let's Find"
         android:textSize="16sp"
+        app:cornerRadius="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_gallery"
         app:layout_constraintStart_toStartOf="@+id/vertical_left_16dp" />

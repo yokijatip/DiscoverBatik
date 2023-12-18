@@ -53,7 +53,6 @@ class OpenCameraActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
 //        Permission All Granted Handle
         if (!allPermissionsGranted()) {
 //            TODO Request Permission
@@ -83,7 +82,10 @@ class OpenCameraActivity : AppCompatActivity() {
             }
 
             btnFind.setOnClickListener {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?q=${tvLabel.text}"))
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.google.com/search?q=${tvLabel.text}")
+                )
                 startActivity(intent)
             }
         }
@@ -139,7 +141,6 @@ class OpenCameraActivity : AppCompatActivity() {
 
         birdModel.close()
     }
-
 
     private fun startCameraX() {
         val intent = Intent(this, CameraActivity::class.java)

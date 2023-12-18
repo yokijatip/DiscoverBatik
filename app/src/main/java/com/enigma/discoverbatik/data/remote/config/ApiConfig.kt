@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiConfig {
     companion object {
-        fun getApiService(token: String?): ApiService {
+        fun getApiService(): ApiService {
             val httpLoggingInterceptor1 = HttpLoggingInterceptor()
             val httpLoggingInterceptor = httpLoggingInterceptor1.apply {
                 httpLoggingInterceptor1.level = HttpLoggingInterceptor.Level.BODY
@@ -17,7 +17,6 @@ class ApiConfig {
             val authInterceptor = Interceptor { chain ->
                 val req = chain.request()
                 val requestHeaders = req.newBuilder()
-                    .addHeader("Authorization", "Bearer $token")
                     .build()
                 chain.proceed(requestHeaders)
             }
@@ -26,7 +25,7 @@ class ApiConfig {
                 .addInterceptor(authInterceptor)
                 .build()
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://story-api.dicoding.dev/v1/")
+                .baseUrl("https://backend-vrqjpvae7a-et.a.run.app/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

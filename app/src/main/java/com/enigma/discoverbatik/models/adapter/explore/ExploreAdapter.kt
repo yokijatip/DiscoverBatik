@@ -6,32 +6,32 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.enigma.discoverbatik.data.remote.response.ListStoryItem
+import com.enigma.discoverbatik.data.remote.response.PopularBatikResponse
 import com.enigma.discoverbatik.databinding.ListItemExploreBinding
-import com.enigma.discoverbatik.databinding.ListItemPopularBatikSmallCardBinding
+
 
 class ExploreAdapter : RecyclerView.Adapter<ExploreAdapter.StoryViewHolder>() {
 
-    private var listItem: List<ListStoryItem> = emptyList()
+    private var listItem: List<PopularBatikResponse> = emptyList()
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(newList: List<ListStoryItem>) {
+    fun setData(newList: List<PopularBatikResponse>) {
         listItem = newList
         notifyDataSetChanged()
     }
 
     inner class StoryViewHolder(private val binding: ListItemExploreBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(storyItem: ListStoryItem) {
+        fun bind(popularItem: PopularBatikResponse) {
 
             binding.apply {
                 Glide.with(itemView)
-                    .load(storyItem.photoUrl)
+                    .load(popularItem.photoUrl)
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .centerCrop()
                     .into(ivContentImage)
-                tvContentTitle.text = storyItem.name
-                tvContentLocation.text = storyItem.createdAt
+                tvContentTitle.text = popularItem.batikName
+                tvContentLocation.text = popularItem.asalDaerah
             }
         }
     }

@@ -8,39 +8,39 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.enigma.discoverbatik.data.remote.response.ListStoryItem
+import com.enigma.discoverbatik.data.remote.response.PopularBatikResponse
 import com.enigma.discoverbatik.databinding.ListItemPopularBatikBinding
 import com.enigma.discoverbatik.view.activity.detail.DetailActivity
 
 class PopularAdapter : RecyclerView.Adapter<PopularAdapter.StoryViewHolder>() {
 
-    private var listItem: List<ListStoryItem> = emptyList()
+    private var listItem: List<PopularBatikResponse> = emptyList()
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(newList: List<ListStoryItem>) {
+    fun setData(newList: List<PopularBatikResponse>) {
         listItem = newList
         notifyDataSetChanged()
     }
 
     inner class StoryViewHolder(private val binding: ListItemPopularBatikBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(context: Context,storyItem: ListStoryItem) {
+        fun bind(context: Context,popularItem: PopularBatikResponse) {
 
             binding.root.setOnClickListener {
                 val intent = Intent(context, DetailActivity::class.java)
-                intent.putExtra("extra_id", storyItem.id)
+                intent.putExtra("extra_id", popularItem.id)
                 context.startActivity(intent)
             }
 
             binding.apply {
                 Glide.with(itemView)
-                    .load(storyItem.photoUrl)
+                    .load(popularItem.photoUrl)
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .centerCrop()
                     .into(ivContentImage)
-                tvContentTitle.text = storyItem.name
-                tvContentLocation.text = storyItem.createdAt
-                tvContentDescription.text = storyItem.description
+                tvContentTitle.text = popularItem.batikName
+                tvContentLocation.text = popularItem.asalDaerah
+                tvContentDescription.text = popularItem.content
             }
         }
     }

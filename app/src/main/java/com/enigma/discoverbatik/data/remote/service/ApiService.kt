@@ -2,9 +2,10 @@ package com.enigma.discoverbatik.data.remote.service
 
 import com.enigma.discoverbatik.data.remote.response.DetailResponse
 import com.enigma.discoverbatik.data.remote.response.LoginResponse
-import com.enigma.discoverbatik.data.remote.response.PopularItemResponse
+import com.enigma.discoverbatik.data.remote.response.PopularBatikResponse
 import com.enigma.discoverbatik.data.remote.response.RegisterResponse
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -28,12 +29,12 @@ interface ApiService {
         @Field("password") password: String
     ): Call<RegisterResponse>
 
-    @GET("stories")
-    suspend fun getStories(): PopularItemResponse
+    @GET("allbatik")
+    suspend fun getAllBatik(): Response<List<PopularBatikResponse>>
 
-    @GET("stories/{id}")
+    @GET("batik/{id}")
     suspend fun getDetailById(
-        @Path("id") id: String,
+        @Path("id") id: Int,
     ): DetailResponse
 
 }

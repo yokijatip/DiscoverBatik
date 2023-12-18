@@ -1,26 +1,23 @@
 package com.enigma.discoverbatik.view.activity.detail
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.enigma.discoverbatik.data.remote.response.Story
+import com.enigma.discoverbatik.data.remote.response.DetailResponse
 import com.enigma.discoverbatik.repository.Repository
 import kotlinx.coroutines.launch
 
 class DetailViewModel(private val repository: Repository) : ViewModel() {
 
-    private val liveData = MutableLiveData<Story?>()
-    fun getDetailLiveData(): MutableLiveData<Story?> {
-        return liveData
-    }
+    private val _batikDetail = MutableLiveData<DetailResponse>()
+    val batikDetail: LiveData<DetailResponse> get() = _batikDetail
 
-    fun getDetailById(id: String) {
+    fun getDetailById(id: Int) {
         viewModelScope.launch {
             try {
-                val response = repository.getDetailById(id)
-                val detail = response.story
-                liveData.value = detail
+                _batikDetail.value = repository.getDetailById(id)
             } catch (e: Exception) {
                 throw e
             }

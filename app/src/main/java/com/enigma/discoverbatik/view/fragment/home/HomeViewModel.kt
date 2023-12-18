@@ -5,22 +5,28 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.enigma.discoverbatik.data.remote.response.PopularItemResponse
+import com.enigma.discoverbatik.data.remote.response.PopularBatikResponse
 import com.enigma.discoverbatik.repository.Repository
 import kotlinx.coroutines.launch
 
 class HomeViewModel(private val repository: Repository) : ViewModel() {
 
-    private val _popularItems = MutableLiveData<PopularItemResponse>()
-    val popularItems: LiveData<PopularItemResponse> get() = _popularItems
+    private val _popularItems = MutableLiveData<List<PopularBatikResponse>>()
+    val popularItems: LiveData<List<PopularBatikResponse>> get() = _popularItems
+
+    private val _error = MutableLiveData<String>()
 
     fun fetchPopularItems() {
         viewModelScope.launch {
             try {
-                val popularItems = repository.getStory()
-                _popularItems.value = popularItems
+                val response = repository.getAllBatik()
+                if (response.isSuccessful) {
+                    _popularItems.value = response.body()
+                } else {
+                    _error.value = "Error : ${response.code()} - ${response.message()}"
+                }
             } catch (e: Exception) {
-                throw e
+                _error.value = "Exception: ${e.message}"
             }
         }
     }

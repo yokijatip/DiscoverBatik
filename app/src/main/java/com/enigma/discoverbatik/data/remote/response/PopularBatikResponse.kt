@@ -1,9 +1,10 @@
 package com.enigma.discoverbatik.data.remote.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-
-data class DetailResponse(
-
+import kotlinx.parcelize.Parcelize
+@Parcelize
+data class PopularBatikResponse(
     @field:SerializedName("id")
     val id: Int? = null,
 
@@ -25,4 +26,4 @@ data class DetailResponse(
     @field:SerializedName("asal_daerah")
     val asalDaerah: String? = null
 
-)
+) : Parcelable
