@@ -14,6 +14,7 @@ import com.enigma.discoverbatik.di.Injection
 import com.enigma.discoverbatik.utils.CommonUtils
 import com.enigma.discoverbatik.view.activity.main.MainActivity
 import com.enigma.discoverbatik.view.activity.register.RegisterActivity
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
 @Suppress("DEPRECATION")
@@ -22,10 +23,14 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginBinding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
 
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loginBinding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(loginBinding.root)
+
+        auth = FirebaseAuth.getInstance()
 
         val injection = Injection.provideRepository(this@LoginActivity)
         val factory = ViewModelFactory(injection)
@@ -59,26 +64,36 @@ class LoginActivity : AppCompatActivity() {
         } else if (password.length < 8) {
             onFailureLogin("Login Failed, password must be 8 character")
         } else {
-            CommonUtils.loading(loginBinding.loading, true)
-            lifecycleScope.launch {
-                try {
-                    val result = loginViewModel.login(email, password)
-                    val token = result.loginResult?.token
-                    if (token != null) {
-                        Log.d("Token", "My Token $token")
-                        saveTokenDataStore(token)
-                    } else {
-                        onFailureLogin("Login Failed, error 😞")
-                    }
-                    CommonUtils.loading(loginBinding.loading, false)
-                    onSuccessLogin()
-                } catch (e: Exception) {
-                    onFailureLogin("Login Failed, email and password is wrong")
-                    CommonUtils.loading(loginBinding.loading, false)
-                }
-            }
+            authLoginFirebase(email, password)
         }
 
+    }
+
+    private fun authLoginFirebase(email: String, password: String) {
+        CommonUtils.loading(loginBinding.loading, true)
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) {
+                if (it.isSuccessful) {
+                    val user = auth.currentUser
+                    user?.getIdToken(true)?.addOnCompleteListener { tokeniD ->
+                            if (tokeniD.isSuccessful) {
+                                val token = tokeniD.result?.token
+                                Log.d("Token JWT", "My JWT Token : $token")
+                                lifecycleScope.launch {
+                                    if (token != null) {
+                                        saveTokenDataStore(token)
+                                    }
+                                }
+                                CommonUtils.loading(loginBinding.loading, false)
+                                onSuccessLogin()
+                            } else {
+                                onFailureLogin("Failed to get ID Token : ${tokeniD.exception?.message}")
+                            }
+                        }
+                } else {
+                    CommonUtils.loading(loginBinding.loading, false)
+                    onFailureLogin("Login Failed : ${it.exception?.message}")
+                }
+            }
     }
 
     private fun onFailureLogin(message: String) {

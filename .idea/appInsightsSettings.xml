@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.enigma.discoverbatik" />
+                  <option name="mobileSdkAppId" value="1:332030572643:android:e7e961830822a8e27ca056" />
+                  <option name="projectId" value="discover-batik" />
+                  <option name="projectNumber" value="332030572643" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

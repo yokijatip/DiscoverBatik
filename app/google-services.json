@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "332030572643",
+    "project_id": "discover-batik",
+    "storage_bucket": "discover-batik.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332030572643:android:e7e961830822a8e27ca056",
+        "android_client_info": {
+          "package_name": "com.enigma.discoverbatik"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsw4TLOjLsxBJjzECXA5ISrd7uXCAvB5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

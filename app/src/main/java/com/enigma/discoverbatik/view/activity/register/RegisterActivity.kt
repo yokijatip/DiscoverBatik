@@ -4,25 +4,27 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.enigma.discoverbatik.R
 import com.enigma.discoverbatik.databinding.ActivityRegisterBinding
 import com.enigma.discoverbatik.di.Injection
 import com.enigma.discoverbatik.utils.CommonUtils
 import com.enigma.discoverbatik.view.activity.landing.LandingActivity
 import com.enigma.discoverbatik.view.activity.login.LoginActivity
-import kotlinx.coroutines.launch
+import com.google.firebase.auth.FirebaseAuth
 
 @Suppress("DEPRECATION")
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var registerBinding: ActivityRegisterBinding
     private lateinit var registerViewModel: RegisterViewModel
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         registerBinding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(registerBinding.root)
+
+        auth = FirebaseAuth.getInstance()
 
         val injection = Injection.provideRepository(this@RegisterActivity)
         val factory = ViewModelFactory(injection)
@@ -60,18 +62,23 @@ class RegisterActivity : AppCompatActivity() {
         } else if (password.length < 8) {
             onFailureRegister("Register Failed, password must be 8 character")
         } else {
-            CommonUtils.loading(registerBinding.loading, true)
-            lifecycleScope.launch {
-                try {
-                    registerViewModel.register(username, email, password)
+            authRegisterFirebase(email, password)
+        }
+    }
+
+    private fun authRegisterFirebase(email: String, password: String) {
+        CommonUtils.loading(registerBinding.loading, true)
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) {
+                if (it.isSuccessful) {
                     CommonUtils.loading(registerBinding.loading, false)
-                    onSuccessRegister("Register was success please login, thank for creating your account here :)")
-                } catch (e: Exception) {
+                    onSuccessRegister("Thanks for creating accounts in our app, please login 🙌")
+                } else {
                     CommonUtils.loading(registerBinding.loading, false)
-                    onFailureRegister("Register Failed, username, email & password maybe has already use by another")
+                    onFailureRegister("Error : ${it.exception?.message}")
                 }
             }
-        }
+
     }
 
     private fun onFailureRegister(message: String) {

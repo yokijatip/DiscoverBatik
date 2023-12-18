@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.enigma.discoverbatik.R
 import com.enigma.discoverbatik.view.activity.login.LoginActivity
+import com.google.android.material.snackbar.Snackbar
 
 object CommonUtils {
 
@@ -63,6 +64,36 @@ object CommonUtils {
 
         }
         dialog.show()
+    }
+
+    fun alertThanks(context: Context, message: String) {
+        val builder = AlertDialog.Builder(context)
+        builder.setCancelable(true)
+        val view = LayoutInflater.from(context).inflate(R.layout.custom_success_alert, null)
+
+
+        val tvMessage = view.findViewById<TextView>(R.id.tv_message)
+        val btnGotit = view.findViewById<TextView>(R.id.btn_gotit)
+        tvMessage.text = message
+
+        builder.setView(view)
+        val dialog = builder.create()
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        btnGotit.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+
+    fun showSnackbar(view: View, message: String) {
+        val snackbar = Snackbar.make(
+            view,
+            message,
+            Snackbar.LENGTH_SHORT
+        )
+
+        snackbar.show()
     }
 
     fun loading(view: View, state: Boolean) {

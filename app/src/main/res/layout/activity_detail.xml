@@ -1,345 +1,407 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.activity.detail.DetailActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/vertical_left_16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activity.detail.DetailActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/vertical_right_16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_left_16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontal2_top_dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="32dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_right_16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal2_top_dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="32dp" />
 
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialCardView2"
-        android:layout_width="0dp"
-        android:layout_height="240dp"
-        android:layout_marginTop="24dp"
-        app:cardElevation="4dp"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
-        app:layout_constraintStart_toStartOf="@+id/vertical_left_16dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detail_name">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView2"
+            android:layout_width="0dp"
+            android:layout_height="240dp"
+            android:layout_marginTop="24dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
+            app:layout_constraintStart_toStartOf="@+id/vertical_left_16dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_detail_name">
+
+            <ImageView
+                android:id="@+id/iv_content_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pattern" />
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+            app:layout_constraintStart_toStartOf="@+id/vertical_left_16dp"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout2">
+
+            <TextView
+                android:id="@+id/tv_content_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:maxLines="2"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@+id/vertical_left_16dp"
+                app:layout_constraintTop_toTopOf="@+id/linearLayout2"
+                tools:text="Batik Akatsuki" />
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:layout_constraintStart_toStartOf="@+id/tv_content_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_content_title">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_map_pin_black"
+                    app:layout_constraintStart_toStartOf="@+id/tv_content_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_content_title" />
+
+                <TextView
+                    android:id="@+id/tv_content_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_reguler"
+                    android:textColor="#292929"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    tools:text="Bandung, Indonesia" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Description"
+            android:textAlignment="textStart"
+            android:textColor="#292929"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/btn_buy"
+            app:layout_constraintTop_toBottomOf="@+id/btn_buy" />
+
+        <TextView
+            android:id="@+id/tv_content_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_reguler"
+            android:textAlignment="textStart"
+            android:textColor="#292929"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/tv_description"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description"
+            tools:text="@string/lorem_ipsum" />
+
+        <TextView
+            android:id="@+id/tv_technique"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Batik Technique"
+            android:textAlignment="textStart"
+            android:textColor="#292929"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_content_description"
+            app:layout_constraintTop_toBottomOf="@+id/tv_content_description" />
+
+        <TextView
+            android:id="@+id/tv_content_technique"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_reguler"
+            android:lines="1"
+            android:maxLines="1"
+            android:textAlignment="textStart"
+            android:textColor="#292929"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_technique"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_technique"
+            app:layout_constraintTop_toBottomOf="@+id/tv_technique"
+            tools:text="Dip Technique" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Rp"
+            android:textAlignment="textStart"
+            android:textColor="#292929"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_content_technique"
+            app:layout_constraintTop_toBottomOf="@+id/tv_content_technique" />
+
+        <TextView
+            android:id="@+id/tv_price_per"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_reguler"
+            android:text="/fabric"
+            android:textAlignment="textStart"
+            android:textColor="#292929"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_content_price"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_content_price" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView2">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/iv_user_profile1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="-20dp"
+                    android:src="@drawable/user_profile"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_user_profile2"
+                    app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
+                    app:layout_constraintTop_toTopOf="@+id/iv_user_profile2"
+                    app:layout_constraintVertical_bias="0.500"
+                    app:riv_border_color="@color/white"
+                    app:riv_border_width="2dp"
+                    app:riv_corner_radius="100dp" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/iv_user_profile2"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/user_profile"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_content_location"
+                    app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
+                    app:layout_constraintTop_toTopOf="@+id/tv_content_title"
+                    app:riv_border_color="@color/white"
+                    app:riv_border_width="2dp"
+                    app:riv_corner_radius="100dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+
+                    android:src="@drawable/ic_star"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_rating"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="@+id/iv_user_profile1"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_user_profile1"
+                    app:tint="#F0D43D" />
+
+                <TextView
+                    android:id="@+id/tv_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="4.2"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_user_profile2"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+        <TextView
+            android:id="@+id/tv_content_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_bold"
+            android:textAlignment="textStart"
+            android:textColor="#292929"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_price"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_price"
+            app:layout_constraintTop_toTopOf="@+id/tv_price"
+            tools:text="200.000" />
 
         <ImageView
-            android:id="@+id/iv_content_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/pattern" />
+            android:id="@+id/btn_back"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="16dp"
+            android:rotation="180"
+            android:src="@drawable/ic_arrow_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/horizontal2_top_dp" />
+
+        <ImageView
+            android:id="@+id/btn_bug_report"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:rotation="0"
+            android:src="@drawable/ic_bug_report"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
+            app:layout_constraintTop_toTopOf="@+id/horizontal2_top_dp" />
+
+        <TextView
+            android:id="@+id/tv_detail_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Detail"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/horizontal2_top_dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_buy"
+            android:layout_width="0dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:drawableTint="@color/white"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Buy"
+            android:textSize="14sp"
+            app:cornerRadius="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/btn_favorite"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_favorite"
+            android:layout_width="0dp"
+            android:layout_height="58dp"
+            android:layout_marginEnd="8dp"
+            android:drawableTint="@color/white"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Favorite"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="14dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_buy"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_buy"
+            app:layout_constraintTop_toTopOf="@+id/btn_buy"
+            app:rippleColor="@color/black"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp" />
 
 
-    </com.google.android.material.card.MaterialCardView>
-
-    <TextView
-        android:id="@+id/tv_content_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/roboto_bold"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/vertical_left_16dp"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView2"
-        tools:text="Batik Akatsuki" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="4dp"
-        android:src="@drawable/ic_star"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_content_title"
-        app:layout_constraintEnd_toStartOf="@+id/tv_rating"
-        app:layout_constraintTop_toTopOf="@+id/tv_content_title"
-        app:tint="#F0D43D" />
-
-    <TextView
-        android:id="@+id/tv_rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="4.2"
-        android:fontFamily="@font/roboto_bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
-
-    <TextView
-        android:id="@+id/tv_content_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/roboto_reguler"
-        android:textColor="#292929"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:text="Bandung, Indonesia" />
-
-    <TextView
-        android:id="@+id/tv_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:ellipsize="end"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Description"
-        android:textAlignment="textStart"
-        android:textColor="#292929"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btn_buy"
-        app:layout_constraintTop_toBottomOf="@+id/btn_buy" />
-
-    <TextView
-        android:id="@+id/tv_content_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:ellipsize="end"
-        android:fontFamily="@font/roboto_reguler"
-        android:textAlignment="textStart"
-        android:textColor="#292929"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_content_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_description"
-        tools:text="@string/lorem_ipsum" />
-
-    <TextView
-        android:id="@+id/tv_technique"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:ellipsize="end"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Batik Technique"
-        android:textAlignment="textStart"
-        android:textColor="#292929"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_content_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_content_description" />
-
-    <TextView
-        android:id="@+id/tv_content_technique"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ellipsize="end"
-        android:fontFamily="@font/roboto_reguler"
-        android:lines="1"
-        android:maxLines="1"
-        android:textAlignment="textStart"
-        android:textColor="#292929"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_technique"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_content_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_technique"
-        tools:text="Dip Technique" />
-
-    <TextView
-        android:id="@+id/tv_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:ellipsize="end"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Rp"
-        android:textAlignment="textStart"
-        android:textColor="#292929"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_content_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_content_technique" />
-
-    <TextView
-        android:id="@+id/tv_price_per"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:ellipsize="end"
-        android:fontFamily="@font/roboto_reguler"
-        android:text="/fabric"
-        android:textAlignment="textStart"
-        android:textColor="#292929"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_content_price"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tv_content_price" />
-
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/iv_user_profile1"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="40dp"
-        android:src="@drawable/user_profile"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_price"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
-        app:layout_constraintTop_toTopOf="@+id/tv_price"
-        app:layout_constraintVertical_bias="0.500"
-        app:riv_border_color="@color/white"
-        app:riv_border_width="2dp"
-        app:riv_corner_radius="100dp" />
-
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/iv_user_profile2"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/user_profile"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_price"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
-        app:layout_constraintTop_toTopOf="@+id/tv_price"
-        app:riv_border_color="@color/white"
-        app:riv_border_width="2dp"
-        app:riv_corner_radius="100dp" />
-
-    <TextView
-        android:id="@+id/tv_content_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        android:ellipsize="end"
-        android:fontFamily="@font/roboto_bold"
-        android:textAlignment="textStart"
-        android:textColor="#292929"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_price"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tv_price"
-        app:layout_constraintTop_toTopOf="@+id/tv_price"
-        tools:text="200.000" />
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/ic_map_pin_black"
-        app:layout_constraintStart_toStartOf="@+id/tv_content_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_content_title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:id="@+id/btn_back"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:rotation="180"
-        android:src="@drawable/ic_arrow_left"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/btn_bug_report"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="24dp"
-        android:rotation="0"
-        android:src="@drawable/ic_bug_report"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_detail_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Detail"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/horizontal2_top_dp" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_buy"
-        android:layout_width="0dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:drawableTint="@color/white"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Buy"
-        android:textSize="14sp"
-        app:cornerRadius="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_favorite"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_favorite"
-        android:layout_width="0dp"
-        android:layout_height="58dp"
-        android:layout_marginEnd="8dp"
-        android:drawableTint="@color/white"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Favorite"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:backgroundTint="@color/white"
-        app:cornerRadius="14dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_buy"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_buy"
-        app:layout_constraintTop_toTopOf="@+id/btn_buy"
-        app:rippleColor="@color/black"
-        app:strokeColor="@color/black"
-        app:strokeWidth="1dp" />
+</androidx.core.widget.NestedScrollView>
 
 
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
 

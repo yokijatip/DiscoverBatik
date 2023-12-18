@@ -216,6 +216,7 @@
         android:id="@+id/btn_register"
         android:layout_width="0dp"
         android:layout_height="64dp"
+        app:cornerRadius="16dp"
         android:layout_marginStart="56dp"
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="24dp"

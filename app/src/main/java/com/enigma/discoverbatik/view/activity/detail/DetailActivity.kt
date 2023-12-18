@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.enigma.discoverbatik.databinding.ActivityDetailBinding
 import com.enigma.discoverbatik.di.Injection
+import com.enigma.discoverbatik.utils.CommonUtils
 
 class DetailActivity : AppCompatActivity() {
 
@@ -19,6 +20,18 @@ class DetailActivity : AppCompatActivity() {
         detailBinding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(detailBinding.root)
 
+        detailBinding.apply {
+            btnBugReport.setOnClickListener {
+                CommonUtils.alertThanks(this@DetailActivity, "Thanks for reporting annoying bug🫵😭")
+            }
+            btnFavorite.setOnClickListener {
+                CommonUtils.showSnackbar(findViewById(android.R.id.content), "Waduh")
+            }
+            btnBack.setOnClickListener {
+                finish()
+            }
+        }
+
         val repository = Injection.provideRepository(this@DetailActivity)
         val factory = ViewModelFactory(repository)
         detailViewModel =
@@ -27,6 +40,7 @@ class DetailActivity : AppCompatActivity() {
         getDetailId()
         getDetail()
         generateRandomRatingNumber()
+
     }
 
 
@@ -55,6 +69,7 @@ class DetailActivity : AppCompatActivity() {
 
         detailBinding.tvRating.text = formattedNumber
     }
+
 
     private fun getDetailId() {
         val id = intent.getIntExtra("extra_id", -1)
