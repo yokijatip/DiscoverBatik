@@ -37,18 +37,31 @@
         app:layout_constraintTop_toTopOf="@+id/horizontal2_top_dp" />
 
     <TextView
+        android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_bold"
 
+        android:fontFamily="@font/roboto_bold"
         android:text="Cart"
         android:textColor="@color/black"
-        android:textSize="22sp"
 
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/horizontal2_top_dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_cart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView16"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
+        app:layout_constraintStart_toStartOf="@+id/vertical_left_16dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        tools:listitem="@layout/list_item_cart" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,17 +77,18 @@
         android:text="Total" />
 
     <TextView
+        android:id="@+id/textView16"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
+        android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:fontFamily="@font/roboto_bold"
-        android:textColor="@color/black"
 
+        android:text="Rp.19.000"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_checkout"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp"
-        android:text="Rp.19.000" />
+        app:layout_constraintEnd_toStartOf="@+id/vertical_right_16dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_checkout"

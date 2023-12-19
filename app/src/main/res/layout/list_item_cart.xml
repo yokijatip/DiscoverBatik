@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.Material3.CardView.Filled"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="16dp"
+    android:backgroundTint="@color/white"
+    android:elevation="24dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!-- Content Image -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Material3.CardView.Filled"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:cardCornerRadius="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shape_8dp">
+
+            <ImageView
+                android:id="@+id/iv_content_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/batik_kawung" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Content Text -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_content_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Batik Kawung"
+                android:layout_gravity="top"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/black"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_gravity="start"
+                >
+
+                <TextView
+                    android:id="@+id/tv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Rp"
+                    android:ellipsize="end"
+                    android:layout_weight="1"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="13sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_content_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="200.000"
+                    android:layout_marginStart="4dp"
+                    android:ellipsize="end"
+                    android:layout_weight="1"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="14sp"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <!-- Button plus, minus, trash -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_marginEnd="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+
+                <ImageView
+                    android:id="@+id/btn_minus"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_minus" />
+
+                <TextView
+                    android:id="@+id/tv_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="20"
+                    android:ellipsize="end"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/roboto_bold"/>
+
+                <ImageView
+                    android:id="@+id/btn_plus"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_plus"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_remove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_trash" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Remove"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/roboto_bold"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</com.google.android.material.card.MaterialCardView>
