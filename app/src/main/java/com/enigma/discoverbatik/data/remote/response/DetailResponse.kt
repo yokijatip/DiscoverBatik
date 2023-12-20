@@ -23,6 +23,8 @@ data class DetailResponse(
     val content: String? = null,
 
     @field:SerializedName("asal_daerah")
-    val asalDaerah: String? = null
+    val asalDaerah: String? = null,
+
+    var quantity : Int
 
 )
