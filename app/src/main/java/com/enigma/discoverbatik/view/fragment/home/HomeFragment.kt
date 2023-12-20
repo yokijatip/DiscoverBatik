@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.FrameLayout
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +16,7 @@ import com.enigma.discoverbatik.di.Injection
 import com.enigma.discoverbatik.models.adapter.popular.PopularAdapter
 import com.enigma.discoverbatik.view.activity.camera.OpenCameraActivity
 import com.enigma.discoverbatik.view.activity.cart.CartActivity
+import com.nex3z.notificationbadge.NotificationBadge
 
 
 class HomeFragment : Fragment(), View.OnClickListener {
@@ -57,6 +57,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         btnCamera.setOnClickListener {
             navigateToCameraActivity()
         }
+
 
     }
 

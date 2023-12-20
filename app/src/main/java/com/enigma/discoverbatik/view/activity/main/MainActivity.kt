@@ -12,7 +12,6 @@ import com.enigma.discoverbatik.view.fragment.profile.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
 
-
     private lateinit var mainBinding: ActivityMainBinding
 
     private fun fragmentManager(fragment: Fragment) {

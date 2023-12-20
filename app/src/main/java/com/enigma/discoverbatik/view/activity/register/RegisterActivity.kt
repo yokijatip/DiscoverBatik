@@ -11,6 +11,7 @@ import com.enigma.discoverbatik.utils.CommonUtils
 import com.enigma.discoverbatik.view.activity.landing.LandingActivity
 import com.enigma.discoverbatik.view.activity.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 @Suppress("DEPRECATION")
 class RegisterActivity : AppCompatActivity() {
@@ -18,6 +19,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var registerBinding: ActivityRegisterBinding
     private lateinit var registerViewModel: RegisterViewModel
     private lateinit var auth: FirebaseAuth
+    private lateinit var database: FirebaseDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +27,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(registerBinding.root)
 
         auth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance()
 
         val injection = Injection.provideRepository(this@RegisterActivity)
         val factory = ViewModelFactory(injection)
@@ -62,16 +65,21 @@ class RegisterActivity : AppCompatActivity() {
         } else if (password.length < 8) {
             onFailureRegister("Register Failed, password must be 8 character")
         } else {
-            authRegisterFirebase(email, password)
+            authRegisterFirebase(email, password, username)
         }
     }
 
-    private fun authRegisterFirebase(email: String, password: String) {
+    private fun authRegisterFirebase(email: String, password: String, username: String) {
         CommonUtils.loading(registerBinding.loading, true)
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {
                 if (it.isSuccessful) {
                     CommonUtils.loading(registerBinding.loading, false)
+                    val userId = auth.currentUser?.uid
+                    userId?.let {
+                        val userReference = database.reference.child("users").child(userId)
+                        userReference.child("username").setValue(username)
+                    }
                     onSuccessRegister("Thanks for creating accounts in our app, please login 🙌")
                 } else {
                     CommonUtils.loading(registerBinding.loading, false)

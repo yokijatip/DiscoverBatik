@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.enigma.discoverbatik.data.remote.response.BatikItem
 import com.enigma.discoverbatik.databinding.ActivityCartBinding
 import com.enigma.discoverbatik.models.adapter.cart.CartAdapter
+import com.enigma.discoverbatik.utils.CommonUtils
 
 class CartActivity : AppCompatActivity(), CartAdapter.OnItemClickListener {
 
@@ -43,9 +44,11 @@ class CartActivity : AppCompatActivity(), CartAdapter.OnItemClickListener {
     }
 
     private fun updateTotalPrice() {
-        val total = cartManager.calculateTotalPrice()
+        val (subTotal, total) = cartManager.calculateTotalPrice()
         cartBinding.apply {
-            tvContentTotal.text = total.toString()
+            tvContentTotal.text = CommonUtils.formatRupiah(total)
+            tvContentSubtotal.text = CommonUtils.formatRupiah(subTotal)
+
         }
     }
 

@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.enigma.discoverbatik.R
 import com.enigma.discoverbatik.data.remote.response.BatikItem
+import com.enigma.discoverbatik.utils.CommonUtils
 import com.enigma.discoverbatik.view.activity.cart.CartManager
 
 class CartAdapter(
@@ -45,7 +46,7 @@ class CartAdapter(
         val cartItem = cartItems[position]
 
         holder.tvContentTitle.text = cartItem.name
-        holder.tvContentPrice.text = cartItem.price.toString()
+        holder.tvContentPrice.text = CommonUtils.formatRupiah(cartItem.price)
         holder.tvContentQuantity.text = cartItem.quantity.toString()
 
         holder.btnAdd.setOnClickListener { onItemClickListener.onPlusButtonClick(cartItem) }

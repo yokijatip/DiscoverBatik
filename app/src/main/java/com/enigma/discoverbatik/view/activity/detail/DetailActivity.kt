@@ -72,7 +72,7 @@ class DetailActivity : AppCompatActivity() {
                 }
                 detailBinding.tvContentTitle.text = content.batikName
                 detailBinding.tvContentLocation.text = content.asalDaerah
-                detailBinding.tvContentPrice.text = content.price.toString()
+                detailBinding.tvContentPrice.text = CommonUtils.formatRupiah(content.price!!)
                 detailBinding.tvContentTechnique.text = content.technique
                 detailBinding.tvContentDescription.text = content.content
             }

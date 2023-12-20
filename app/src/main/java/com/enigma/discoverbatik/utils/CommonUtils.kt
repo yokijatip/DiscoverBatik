@@ -15,6 +15,8 @@ import androidx.appcompat.app.AlertDialog
 import com.enigma.discoverbatik.R
 import com.enigma.discoverbatik.view.activity.login.LoginActivity
 import com.google.android.material.snackbar.Snackbar
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 object CommonUtils {
 
@@ -102,6 +104,11 @@ object CommonUtils {
 
     fun showToast(context: Context, message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    }
+
+    fun formatRupiah(amount: Int): String {
+        val format: NumberFormat = DecimalFormat("#,###")
+        return format.format(amount)
     }
 
 }

@@ -32,14 +32,19 @@ class CartManager {
         }
     }
 
-    fun calculateTotalPrice(): Int {
+    fun calculateTotalPrice(): Pair<Int, Int> {
+        var subTotal = 0
+        val delivery = 6000
+        val tax = 3000
         var total = 0
 
         for (item in cartItems) {
-            total += item.price * item.quantity
+            subTotal += item.price * item.quantity
         }
 
-        return total
+        total = subTotal + delivery + tax
+
+        return Pair(subTotal, total)
     }
 
     companion object {
