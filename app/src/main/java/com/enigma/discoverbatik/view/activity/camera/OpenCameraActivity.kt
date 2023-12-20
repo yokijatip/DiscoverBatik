@@ -25,7 +25,6 @@ import org.tensorflow.lite.support.image.TensorImage
 class OpenCameraActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOpenCameraBinding
-
     private lateinit var imageView: ImageView
     private lateinit var tvLabel: TextView
     private lateinit var tvLabelProbability: TextView

@@ -66,7 +66,6 @@ class LoginActivity : AppCompatActivity() {
         } else {
             authLoginFirebase(email, password)
         }
-
     }
 
     private fun authLoginFirebase(email: String, password: String) {
@@ -81,6 +80,7 @@ class LoginActivity : AppCompatActivity() {
                                 lifecycleScope.launch {
                                     if (token != null) {
                                         saveTokenDataStore(token)
+                                        CommonUtils.alertError(this@LoginActivity, "My Token : $token")
                                     }
                                 }
                                 CommonUtils.loading(loginBinding.loading, false)

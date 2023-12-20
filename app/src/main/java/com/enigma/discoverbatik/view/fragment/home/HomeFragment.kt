@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -47,7 +48,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         observerViewModelPopularBatik()
         homeViewModel.fetchPopularItems()
 
-        val btnCart = view.findViewById<ImageView>(R.id.btn_shopping_bag)
+        val btnCart = view.findViewById<FrameLayout>(R.id.btn_shopping_bag)
         btnCart.setOnClickListener {
             navigateToCartActivity()
         }

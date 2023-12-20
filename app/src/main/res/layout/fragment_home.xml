@@ -9,10 +9,17 @@
     app:layout_scrollEffect="compress"
     tools:context=".view.fragment.home.HomeFragment">
 
+    <!-- For Comment Copy Paste This -->
+
+    <!--  -->
+
+    <!-- To make easy use wkwkwkwkwkwkwkwkwk -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- Text Location -->
         <TextView
             android:id="@+id/tv_location"
             android:layout_width="wrap_content"
@@ -23,9 +30,10 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/tv_content_location"
             app:layout_constraintStart_toStartOf="@+id/guideline5"
-            app:layout_constraintTop_toTopOf="@+id/btn_shopping_bag"
+            app:layout_constraintTop_toTopOf="@+id/guideline4"
             app:layout_constraintVertical_chainStyle="packed" />
 
+        <!-- Content Location -->
         <TextView
             android:id="@+id/tv_content_location"
             android:layout_width="wrap_content"
@@ -38,15 +46,33 @@
             app:layout_constraintStart_toStartOf="@+id/tv_location"
             app:layout_constraintTop_toBottomOf="@+id/tv_location" />
 
-        <ImageView
+        <!-- Frame Layout for Icon Shopping Bag -->
+        <FrameLayout
             android:id="@+id/btn_shopping_bag"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-
-            android:src="@drawable/ic_shopping_bag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toStartOf="@+id/guideline6"
-            app:layout_constraintTop_toTopOf="@+id/guideline4" />
+            app:layout_constraintTop_toTopOf="@+id/guideline4">
 
+            <ImageView
+                android:id="@+id/ic_cart"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_shopping_bag" />
+
+            <com.nex3z.notificationbadge.NotificationBadge
+                android:id="@+id/notification_badge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_toEndOf="@+id/ic_cart"
+                android:textColor="@color/white"
+                app:nbMaxTextLength="2" />
+        </FrameLayout>
+
+        <!-- Guideline 32dp Top -->
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline4"
             android:layout_width="wrap_content"
@@ -54,6 +80,7 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="32dp" />
 
+        <!-- Guideline 16dp Start -->
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline5"
             android:layout_width="wrap_content"
@@ -61,6 +88,7 @@
             android:orientation="vertical"
             app:layout_constraintGuide_begin="16dp" />
 
+        <!-- Guideline 16dp End -->
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline6"
             android:layout_width="wrap_content"
@@ -68,6 +96,7 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="16dp" />
 
+        <!-- Banner Home Fragment -->
         <androidx.cardview.widget.CardView
             android:id="@+id/banner_home"
             android:layout_width="0dp"
@@ -131,6 +160,7 @@
 
         </androidx.cardview.widget.CardView>
 
+        <!-- Popular Text Title -->
         <LinearLayout
             android:id="@+id/tv_popular_see_all_layout"
             android:layout_width="0dp"
@@ -159,6 +189,7 @@
 
         </LinearLayout>
 
+        <!-- Recycler View -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_popular_batik"
             android:layout_width="0dp"
@@ -169,7 +200,6 @@
             app:layout_constraintTop_toBottomOf="@id/tv_popular_see_all_layout"
             tools:itemCount="4"
             tools:listitem="@layout/list_item_popular_batik" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
