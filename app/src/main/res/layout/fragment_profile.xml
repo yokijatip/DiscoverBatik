@@ -93,9 +93,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="14dp"
-                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="14dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
                     android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -124,44 +126,7 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/account"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginTop="28dp"
-                    android:layout_marginEnd="14dp"
-                    android:layout_marginBottom="16dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/address">
 
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_user_dark_grey" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="16dp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/roboto_reguler"
-                        android:text="Account"
-                        android:textColor="@color/darkGrey"
-                        android:textSize="14sp"
-                        tools:ignore="TextSizeCheck" />
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_arrow_left_dark_grey"
-                        tools:ignore="ContentDescription" />
-
-                </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -188,42 +153,6 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:id="@+id/notification"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="14dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_bell_dark_grey" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="16dp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/roboto_reguler"
-                        android:text="Notification"
-                        android:textColor="@color/darkGrey"
-                        android:textSize="14sp"
-                        tools:ignore="TextSizeCheck" />
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_arrow_left_dark_grey" />
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -235,7 +164,7 @@
 
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/notification">
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:layout_width="24dp"

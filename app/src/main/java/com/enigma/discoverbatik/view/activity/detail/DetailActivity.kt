@@ -13,6 +13,9 @@ import com.enigma.discoverbatik.databinding.ActivityDetailBinding
 import com.enigma.discoverbatik.di.Injection
 import com.enigma.discoverbatik.utils.CommonUtils
 import com.enigma.discoverbatik.view.activity.cart.CartManager
+import com.enigma.discoverbatik.view.fragment.favorite.FavoriteManager
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,6 +27,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var detailViewModel: DetailViewModel
     private lateinit var cartManager: CartManager
     private lateinit var apiService: ApiService
+    private lateinit var favoriteManager: FavoriteManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +36,11 @@ class DetailActivity : AppCompatActivity() {
 
         cartManager = CartManager.getInstance()
         apiService = Injection.proviceApiService()
+        favoriteManager = FavoriteManager.getInstance()
 
         detailBinding.apply {
             btnBugReport.setOnClickListener {
                 CommonUtils.alertThanks(this@DetailActivity, "Thanks for reporting annoying bug🫵😭")
-            }
-            btnFavorite.setOnClickListener {
-                CommonUtils.showSnackbar(findViewById(android.R.id.content), "Waduh")
             }
             btnBack.setOnClickListener {
                 finish()
@@ -75,6 +77,18 @@ class DetailActivity : AppCompatActivity() {
                 detailBinding.tvContentPrice.text = CommonUtils.formatRupiah(content.price!!)
                 detailBinding.tvContentTechnique.text = content.technique
                 detailBinding.tvContentDescription.text = content.content
+
+                detailBinding.apply {
+                    btnFavorite.setOnClickListener {
+                        val itemId = content.id.toString()
+                        val itemName = content.batikName
+                        val itemLocation = content.asalDaerah
+                        val itemDescription = content.content
+                        favoriteManager.addToFavorites(itemId,
+                            itemName!!, itemLocation!!, itemDescription!!)
+                    }
+                }
+
             }
         }
     }

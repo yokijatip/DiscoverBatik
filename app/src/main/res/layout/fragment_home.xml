@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
 
             android:fontFamily="@font/roboto_bold"
-            android:text="Bandung, Indonesia"
+            android:text="Unknown Location"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/btn_shopping_bag"
             app:layout_constraintStart_toStartOf="@+id/tv_location"
