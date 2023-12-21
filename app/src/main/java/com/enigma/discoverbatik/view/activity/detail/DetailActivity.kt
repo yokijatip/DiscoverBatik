@@ -86,6 +86,8 @@ class DetailActivity : AppCompatActivity() {
                         val itemDescription = content.content
                         favoriteManager.addToFavorites(itemId,
                             itemName!!, itemLocation!!, itemDescription!!)
+
+                        CommonUtils.alertThanks(this@DetailActivity, "Item has been added to Favorite Activity, thanks 😭")
                     }
                 }
 
