@@ -35,7 +35,7 @@ class ExploreAdapter : RecyclerView.Adapter<ExploreAdapter.StoryViewHolder>() {
 
             binding.apply {
                 Glide.with(itemView)
-                    .load(popularItem.photoUrl)
+                    .load(popularItem.link)
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .centerCrop()
                     .into(ivContentImage)

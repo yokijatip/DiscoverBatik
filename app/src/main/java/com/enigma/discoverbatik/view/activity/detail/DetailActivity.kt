@@ -67,7 +67,7 @@ class DetailActivity : AppCompatActivity() {
             if (content != null) {
                 detailBinding.apply {
                     Glide.with(this@DetailActivity)
-                        .load(content.photoUrl)
+                        .load(content.link)
                         .transition(DrawableTransitionOptions.withCrossFade())
                         .centerCrop()
                         .into(ivContentImage)

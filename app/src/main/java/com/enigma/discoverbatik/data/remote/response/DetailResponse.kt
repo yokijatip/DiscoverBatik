@@ -7,8 +7,8 @@ data class DetailResponse(
     @field:SerializedName("id")
     val id: Int? = null,
 
-    @field:SerializedName("photoUrl")
-    val photoUrl: String? = null,
+    @field:SerializedName("link")
+    val link: String? = null,
 
     @field:SerializedName("batik_name")
     val batikName: String? = null,

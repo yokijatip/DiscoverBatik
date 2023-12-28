@@ -3,7 +3,6 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
-
     id("com.google.gms.google-services")
 
 }
@@ -69,8 +68,10 @@ dependencies {
     //    Tensor Flow Lite
     implementation("org.tensorflow:tensorflow-lite-metadata:0.1.0")
     implementation("org.tensorflow:tensorflow-lite-support:0.1.0")
-    implementation("com.google.firebase:firebase-database:20.3.0")
+    implementation ("org.tensorflow:tensorflow-lite:2.8.0")
 
+    //    Firebase Realtime Databse
+    implementation("com.google.firebase:firebase-database:20.3.0")
 
     //    Retrofit
     val retrofitVersion = "2.9.0"

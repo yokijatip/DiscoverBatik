@@ -22,6 +22,7 @@ import com.enigma.discoverbatik.utils.CommonUtils
 import com.enigma.discoverbatik.view.activity.camera.CameraActivity.Companion.CAMERAX_RESULT
 import org.tensorflow.lite.support.image.TensorImage
 
+@Suppress("DEPRECATION")
 class OpenCameraActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOpenCameraBinding
@@ -81,11 +82,12 @@ class OpenCameraActivity : AppCompatActivity() {
             }
 
             btnFind.setOnClickListener {
-                val intent = Intent(
-                    Intent.ACTION_VIEW,
-                    Uri.parse("https://www.google.com/search?q=${tvLabel.text}")
-                )
-                startActivity(intent)
+//                val intent = Intent(
+//                    Intent.ACTION_VIEW,
+//                    Uri.parse("https://www.google.com/search?q=${tvLabel.text}")
+//                )
+//                startActivity(intent)
+                CommonUtils.showToast(this@OpenCameraActivity, "Feature will be implemented")
             }
         }
     }
