@@ -3,8 +3,11 @@ package com.enigma.discoverbatik.repository
 import com.enigma.discoverbatik.data.remote.response.DetailResponse
 import com.enigma.discoverbatik.data.remote.response.LoginResponse
 import com.enigma.discoverbatik.data.remote.response.PopularBatikResponse
+import com.enigma.discoverbatik.data.remote.response.PredictionResponse
 import com.enigma.discoverbatik.data.remote.response.RegisterResponse
 import com.enigma.discoverbatik.data.remote.service.ApiService
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.awaitResponse
 
@@ -49,6 +52,7 @@ class Repository(
     suspend fun getDetailById(id: Int): DetailResponse {
          return apiService.getDetailById(id)
     }
+
 
 
 }
