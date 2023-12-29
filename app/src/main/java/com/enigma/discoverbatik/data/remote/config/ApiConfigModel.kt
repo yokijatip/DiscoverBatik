@@ -7,7 +7,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApiConfig {
+class ApiConfigModel {
     companion object {
         fun getApiService(): ApiService {
             val httpLoggingInterceptor1 = HttpLoggingInterceptor()
@@ -25,7 +25,7 @@ class ApiConfig {
                 .addInterceptor(authInterceptor)
                 .build()
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://backend-vrqjpvae7a-et.a.run.app/")
+                .baseUrl("https://ml-api-xwe5h6l4uq-et.a.run.app/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

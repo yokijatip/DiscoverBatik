@@ -115,33 +115,9 @@ class OpenCameraActivity : AppCompatActivity() {
         currentImageUri?.let {
             val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream(it))
             imageView.setImageBitmap(bitmap)
-            outputGenerator(bitmap)
         }
     }
 
-    private fun outputGenerator(bitmap: Bitmap?) {
-
-        val birdModel = ManukClassifier.newInstance(this@OpenCameraActivity)
-
-        //  Create inputs for reference
-        val newBitmap = bitmap?.copy(Bitmap.Config.ARGB_8888, true)
-        val tensorImage = TensorImage.fromBitmap(newBitmap)
-
-        //  Runs Model inference and gets result
-        val outputs = birdModel.process(tensorImage)
-            .probabilityAsCategoryList.apply {
-                sortByDescending {
-                    it.score
-                }
-            }
-        val highProbabilityOutput = outputs[0]
-
-        //  Setting Output text
-        tvLabel.text = highProbabilityOutput.label
-        tvLabelProbability.text = highProbabilityOutput.score.toString()
-
-        birdModel.close()
-    }
 
     private fun startCameraX() {
         val intent = Intent(this, CameraActivity::class.java)
